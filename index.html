@@ -74,7 +74,7 @@
   <p id="last-message" style="min-height:2em;color:#a94f68;font-weight:bold;margin-top:20px"></p>
 </div></section>
 </main>
-<footer>dibikin buat kamu, iwa ♡<br><span class="tiny">semoga kamu suka hehe.</span></footer>
+<footer>dibikin buat kamu, sayangg ♡<br><span class="tiny">semoga kamu suka hehe.</span></footer>
 <script>
 function celebrateAndScroll(){rainHearts();document.querySelector('#letter-section').scrollIntoView({behavior:'smooth'});}
 function rainHearts(){const layer=document.getElementById('confetti');const symbols=['♡','💗','✨','🌷','💖','🎀'];for(let i=0;i<28;i++){const e=document.createElement('span');e.className='conf';e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(2.2+Math.random()*2.2)+'s';e.style.animationDelay=(Math.random()*.5)+'s';layer.appendChild(e);setTimeout(()=>e.remove(),5000);}const msg=document.getElementById('last-message');if(msg)msg.textContent='nih hati kecil-kecilan buat kamu wkwk ♡';}
