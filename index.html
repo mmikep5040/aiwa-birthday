@@ -1,6 +1,4 @@
-from pathlib import Path
-
-html = r'''<!doctype html>
+<!doctype html>
 <html lang="id">
 <head>
 <meta charset="utf-8">
@@ -105,6 +103,32 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
 .reveal.visible{opacity:1;transform:none}
 @media(max-width:520px){section{padding:60px 0}.bouquet-stage{min-height:340px}.flower svg{width:calc(var(--size)*.82);height:calc(var(--size)*.82)}.vase{width:130px;height:125px}.flower{bottom:calc(90px + var(--lift))}.stems{bottom:90px}.cake{transform:scale(.9);margin-top:0;margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* Digital bouquet: pixel-art flowers inspired by the reference */
+.bouquet-section{background:linear-gradient(155deg,#390914 0%,#650f24 48%,#3b0917 100%);color:#fff5f1}
+.bouquet-section .kicker{color:#ffb3c0}
+.bouquet-section h2{color:#fff1ed}
+.bouquet-section .section-desc{color:#f0cbd0}
+.bouquet-section .panel{background:linear-gradient(160deg,#76152d,#4a0b1d);border:1px solid #b84b63;box-shadow:0 20px 55px #21040d70;color:#fff5f1}
+.bouquet-stage{min-height:430px;overflow:visible}
+.bouquet-stage:before{bottom:58px;width:min(500px,94%);height:240px;background:radial-gradient(ellipse,#f06a8040,transparent 70%)}
+.stems{bottom:105px;height:260px}
+.stem{width:4px;background:linear-gradient(90deg,#6b9b68,#b2d18b,#527b50);box-shadow:0 0 5px #b1d28b55;transform:rotate(var(--r))}
+.stem:after{width:18px;height:9px;background:#8fb779;box-shadow:0 0 4px #9fce8b66}
+.flower{bottom:calc(105px + var(--lift));left:var(--x);width:82px;height:82px;display:grid;place-items:center;border:1px solid #ffffff35;border-radius:50%;background:radial-gradient(circle at 40% 32%,#ffffff35,#ffffff13 58%,#ffffff08);box-shadow:inset 0 0 15px #ffffff14,0 5px 18px #18030d55;backdrop-filter:blur(2px);transform:translateX(-50%) scale(.1)}
+.flower.bloom{transform:translateX(-50%) scale(1)}
+.flower:hover,.flower:focus-visible{box-shadow:0 0 0 3px #ffc0ca55,0 0 28px #ff8da8a8,inset 0 0 18px #ffffff28;filter:none}
+.flower svg{width:54px;height:54px;filter:drop-shadow(0 3px 2px #22030b66);shape-rendering:crispEdges;image-rendering:pixelated}
+.flower .petal{stroke:none;shape-rendering:crispEdges}
+.flower .center{stroke:none}
+.vase{width:150px;height:128px;margin-bottom:10px;background:linear-gradient(90deg,#e8e4e4,#fff 35%,#f7eeee 78%,#d8c9ca);clip-path:polygon(8% 0,92% 0,82% 100%,18% 100%);filter:drop-shadow(0 8px 9px #17030b66)}
+.vase:before{left:4%;width:92%;height:13px;background:#fff;border:2px solid #e8dfe0}
+.vase:after{content:"for aiwa ♡";top:52px;color:#9d3047;font-size:13px}
+.bouquet-hint,.progress{color:#f0c4cc}
+.flower-message strong{color:#ffd4dc}
+.flower-message p{color:#ffedf0}
+.bouquet-section .btn.light{background:#fff0f1;color:#76152d;border-color:#ffd4dc}
+@media(max-width:520px){.bouquet-stage{min-height:360px}.stems{bottom:88px;height:225px}.flower{width:66px;height:66px;bottom:calc(88px + var(--lift))}.flower svg{width:46px;height:46px}.vase{width:125px;height:112px}.flower-message{min-height:130px}}
 </style>
 </head>
 <body>
@@ -220,45 +244,130 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
 
 <script>
 const flowers=[
- {name:"mawar merah",meaning:"because you're my favorite",message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe.",petal:"#bd263e",edge:"#8d1d31",x:-190,lift:115,size:92,rotate:-8},
- {name:"tulip merah",meaning:"my little happiness",message:"aku suka hal-hal kecil tentang kamu. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa.",petal:"#dc4054",edge:"#a6243a",x:-112,lift:185,size:82,rotate:5},
- {name:"carnation merah",meaning:"a soft kind of love",message:"buat kamu yang kadang suka capek tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. nggak harus kuat terus.",petal:"#d75a69",edge:"#a63a4c",x:-35,lift:225,size:88,rotate:-3},
- {name:"mawar merah muda",meaning:"just because it's you",message:"nggak ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me.",petal:"#e98b98",edge:"#c75a6b",x:48,lift:210,size:82,rotate:6},
- {name:"tulip burgundy",meaning:"stay a little longer",message:"aku masih mau dengerin banyak cerita kamu, mau tau hal-hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen random bareng kamu. so please, keep telling me things, okay?",petal:"#842039",edge:"#5d1429",x:120,lift:165,size:88,rotate:-5},
- {name:"baby's breath",meaning:"a little reminder",message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi nggak merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu, bbe.",petal:"#fff8f0",edge:"#d8b8b8",x:185,lift:110,size:78,rotate:4}
+ {name:"mawar merah",meaning:"because you're my favorite",message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe.",petal:"#d82e4c",edge:"#8d1d31",x:"17%",lift:125,size:92,rotate:-15,type:"rose"},
+ {name:"tulip merah",meaning:"my little happiness",message:"aku suka hal-hal kecil tentang kamu. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa.",petal:"#ef5363",edge:"#a6243a",x:"30%",lift:205,size:82,rotate:-8,type:"tulip"},
+ {name:"carnation merah",meaning:"a soft kind of love",message:"buat kamu yang kadang suka capek tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. nggak harus kuat terus.",petal:"#ed6578",edge:"#a63a4c",x:"43%",lift:245,size:88,rotate:-2,type:"carnation"},
+ {name:"mawar merah muda",meaning:"just because it's you",message:"nggak ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me.",petal:"#f39aaa",edge:"#c75a6b",x:"57%",lift:225,size:82,rotate:5,type:"pink"},
+ {name:"tulip burgundy",meaning:"stay a little longer",message:"aku masih mau dengerin banyak cerita kamu, mau tau hal-hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen random bareng kamu. so please, keep telling me things, okay?",petal:"#a92b4a",edge:"#5d1429",x:"70%",lift:190,size:88,rotate:10,type:"burgundy"},
+ {name:"baby's breath",meaning:"a little reminder",message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi nggak merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu, bbe.",petal:"#fff8f0",edge:"#d8b8b8",x:"83%",lift:135,size:78,rotate:16,type:"baby"}
 ];
+
 const opened=new Set();
-function flowerSVG(color,edge){
- let petals="";
- for(let i=0;i<8;i++)petals+=`<ellipse class="petal" cx="50" cy="23" rx="12" ry="23" transform="rotate(${i*45} 50 50)"/>`;
- return `<svg viewBox="0 0 100 100" role="img" aria-label="bunga"><g style="--petal:${color};--edge:${edge}">${petals}<circle class="center" cx="50" cy="50" r="12"/></g></svg>`;
+
+function flowerSVG(color,edge,type){
+ const palettes={
+  rose:["#ff7180",color,"#b91f3d","#ffe1d9"],
+  tulip:["#ff9a9d",color,"#b91f3d"],
+  carnation:["#ff9aaa",color,"#b52c4a","#ffd5d9"],
+  pink:["#ffd0d5",color,"#cf647a"],
+  burgundy:["#d85a72",color,"#64152b"],
+  baby:["#ffffff","#f8e8e8","#d8b8c3"]
+ };
+ const c=palettes[type]||[color,color,edge];
+ const rect=(x,y,w,h,fill)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}"/>`;
+ let pixels="";
+
+ if(type==="tulip"||type==="burgundy"){
+  pixels+=rect(21,7,12,8,c[0])+rect(15,14,24,12,c[1])+rect(11,23,32,10,c[1])+rect(17,31,20,8,c[2])+rect(23,37,8,7,c[2]);
+ }else if(type==="baby"){
+  pixels+=rect(20,18,10,10,c[0])+rect(12,25,10,10,c[1])+rect(30,25,10,10,c[0])+rect(21,34,10,10,c[1])+rect(22,25,8,8,"#f3d47a");
+ }else{
+  pixels+=rect(19,5,12,9,c[0])+rect(9,14,32,9,c[1])+rect(5,23,40,12,c[1])+rect(10,35,30,9,c[1])+rect(18,44,14,7,c[2])+rect(19,20,12,12,c[3]||"#ffd28a");
+ }
+
+ pixels+=rect(8,17,5,6,"#ffffff55")+rect(37,31,5,5,c[2])+rect(40,49,8,5,"#83b96d")+rect(34,54,12,5,"#5f995b");
+
+ return `<svg viewBox="0 0 56 62" role="img" aria-label="bunga pixel art" shape-rendering="crispEdges"><g>${pixels}</g></svg>`;
 }
+
 function buildBouquet(){
- const stage=document.getElementById("bouquetStage"),stems=document.getElementById("stems");
+ const stage=document.getElementById("bouquetStage");
+ const stems=document.getElementById("stems");
+
  flowers.forEach((f,i)=>{
-  const stem=document.createElement("span");stem.className="stem";stem.style.setProperty("--h",(125+f.lift*.48)+"px");stem.style.setProperty("--r",f.rotate+"deg");stem.style.left=`calc(50% + ${f.x/2}px)`;stems.appendChild(stem);
-  const b=document.createElement("button");b.className="flower";b.type="button";b.setAttribute("aria-label","Buka pesan "+f.name);
-  b.style.setProperty("--x",f.x+"px");b.style.setProperty("--lift",f.lift+"px");b.style.setProperty("--size",f.size+"px");b.style.setProperty("--petal",f.petal);b.style.setProperty("--edge",f.edge);b.innerHTML=flowerSVG(f.petal,f.edge);b.addEventListener("click",()=>showFlower(i));stage.appendChild(b);
+  const stem=document.createElement("span");
+  stem.className="stem";
+  stem.style.setProperty("--h",(145+f.lift*.42)+"px");
+  stem.style.setProperty("--r",f.rotate+"deg");
+  stem.style.left=f.x;
+  stems.appendChild(stem);
+
+  const b=document.createElement("button");
+  b.className="flower";
+  b.type="button";
+  b.setAttribute("aria-label","Buka pesan "+f.name);
+  b.style.setProperty("--x",f.x);
+  b.style.setProperty("--lift",f.lift+"px");
+  b.innerHTML=flowerSVG(f.petal,f.edge,f.type);
+  b.addEventListener("click",()=>showFlower(i));
+  stage.appendChild(b);
+
   setTimeout(()=>b.classList.add("bloom"),250+i*260);
  });
 }
+
 function showFlower(i){
- const f=flowers[i];opened.add(i);
+ const f=flowers[i];
+ opened.add(i);
  document.getElementById("flowerMessage").innerHTML=`<strong>${f.name} — ${f.meaning}</strong><p>${f.message}</p>`;
  document.getElementById("flowerProgress").textContent=`${opened.size} dari 6 bunga sudah kamu buka ♡`;
 }
-function showAllFlowers(){flowers.forEach((_,i)=>opened.add(i));document.getElementById("flowerMessage").innerHTML="<strong>all six, just for you ♡</strong><p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, bbe.</p>";document.getElementById("flowerProgress").textContent="6 dari 6 bunga sudah kamu buka ♡";}
-function startGift(){rainHearts();document.getElementById("bouquet").scrollIntoView({behavior:"smooth"});}
-function blowCandles(){const cake=document.getElementById("cakeArt");if(cake.classList.contains("cake-out"))return;cake.classList.add("cake-out");document.getElementById("cakeText").textContent="YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";document.getElementById("blowButton").textContent="wish sent! ♡";document.getElementById("blowButton").disabled=true;rainHearts();}
-function openEnvelope(){document.getElementById("envelope").classList.add("open");document.getElementById("secretNote").classList.add("show");document.getElementById("openSecret").textContent="your secret is open ♡";}
-function rainHearts(){const layer=document.getElementById("confetti");const symbols=["♡","♥","🌹","✨","💌","🎀"];for(let i=0;i<30;i++){const e=document.createElement("span");e.className="conf";e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.left=Math.random()*100+"vw";e.style.animationDuration=(2.4+Math.random()*2.2)+"s";e.style.animationDelay=(Math.random()*.45)+"s";layer.appendChild(e);setTimeout(()=>e.remove(),5000);}const msg=document.getElementById("lastMessage");if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";}
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}}),{threshold:.1});
+
+function showAllFlowers(){
+ flowers.forEach((_,i)=>opened.add(i));
+ document.getElementById("flowerMessage").innerHTML="<strong>all six, just for you ♡</strong><p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, bbe.</p>";
+ document.getElementById("flowerProgress").textContent="6 dari 6 bunga sudah kamu buka ♡";
+}
+
+function startGift(){
+ rainHearts();
+ document.getElementById("bouquet").scrollIntoView({behavior:"smooth"});
+}
+
+function blowCandles(){
+ const cake=document.getElementById("cakeArt");
+ if(cake.classList.contains("cake-out"))return;
+ cake.classList.add("cake-out");
+ document.getElementById("cakeText").textContent="YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
+ document.getElementById("blowButton").textContent="wish sent! ♡";
+ document.getElementById("blowButton").disabled=true;
+ rainHearts();
+}
+
+function openEnvelope(){
+ document.getElementById("envelope").classList.add("open");
+ document.getElementById("secretNote").classList.add("show");
+ document.getElementById("openSecret").textContent="your secret is open ♡";
+}
+
+function rainHearts(){
+ const layer=document.getElementById("confetti");
+ const symbols=["♡","♥","🌹","✨","💌","🎀"];
+
+ for(let i=0;i<30;i++){
+  const e=document.createElement("span");
+  e.className="conf";
+  e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  e.style.left=Math.random()*100+"vw";
+  e.style.animationDuration=(2.4+Math.random()*2.2)+"s";
+  e.style.animationDelay=(Math.random()*.45)+"s";
+  layer.appendChild(e);
+  setTimeout(()=>e.remove(),5000);
+ }
+
+ const msg=document.getElementById("lastMessage");
+ if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";
+}
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+ if(e.isIntersecting){
+  e.target.classList.add("visible");
+  observer.unobserve(e.target);
+ }
+}),{threshold:.1});
+
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 buildBouquet();
 </script>
 </body>
-</html>'''
-
-path = Path("/mnt/data/aiwa_birthday_red_garden.html")
-path.write_text(html, encoding="utf-8")
-print(f"HTML siap: {path} ({len(html):,} karakter)")
+</html>
