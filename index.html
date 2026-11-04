@@ -1,177 +1,485 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#5b101e">
-<title>for aiwa ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#480b19">
+<title>For Aiwa ♡</title>
+
 <style>
 :root{
-  --wine:#5b101e;--burgundy:#781c2c;--red:#b3263e;--cherry:#d43b52;
-  --rose:#e88b98;--blush:#f7dfe1;--cream:#fff8f1;--paper:#fffdf9;
-  --ink:#4b2930;--muted:#8c6870;--line:#ead0d0;--sage:#a9b49a;
+  --wine:#480b19;
+  --burgundy:#70152a;
+  --red:#bd263f;
+  --rose:#e85b70;
+  --pink:#f5b7c0;
+  --cream:#fff8f2;
+  --ink:#542832;
+  --muted:#98727a;
+  --green:#76946d;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
 button{font:inherit;cursor:pointer}
-button:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+button:focus-visible{outline:3px solid #f5b7c0;outline-offset:4px}
 .wrap{width:min(900px,91vw);margin:auto}
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 0;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#fffaf4 0,#f9e9e7 58%,#efd1d2 100%)}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.65}
-.hero:before{width:320px;height:320px;background:#e8b2b8;top:-170px;left:-130px}
-.hero:after{width:360px;height:360px;background:#d8b1ae;right:-170px;bottom:-190px}
+
+.hero{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:70px 0;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 40%,#fffaf4,#f9e9e7 60%,#efd1d2);
+}
+.hero:before,.hero:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.65;
+}
+.hero:before{
+  width:320px;height:320px;
+  background:#e8b2b8;
+  top:-170px;left:-130px;
+}
+.hero:after{
+  width:360px;height:360px;
+  background:#d8b1ae;
+  right:-170px;bottom:-190px;
+}
 .hero-inner{position:relative;z-index:1}
-.eyebrow{display:inline-block;border:1px solid #d9aeb3;background:#fffaf5;border-radius:99px;padding:9px 16px;color:var(--burgundy);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}
-h1{font-weight:normal;font-size:clamp(3.1rem,11vw,6.8rem);line-height:.94;letter-spacing:-.055em;color:var(--wine);margin:26px 0 20px}
+.eyebrow{
+  display:inline-block;
+  border:1px solid #d9aeb3;
+  background:#fffaf5;
+  border-radius:99px;
+  padding:9px 16px;
+  color:var(--burgundy);
+  font-size:.75rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+h1{
+  font-weight:normal;
+  font-size:clamp(3.1rem,11vw,6.8rem);
+  line-height:.94;
+  letter-spacing:-.055em;
+  color:var(--wine);
+  margin:26px 0 20px;
+}
 h1 em{display:block;color:var(--red);font-weight:normal}
-.intro{max-width:570px;margin:0 auto 28px;line-height:1.9;color:#79535c;font-size:1.02rem}
-.btn{border:0;border-radius:99px;background:var(--burgundy);color:white;padding:14px 23px;box-shadow:0 9px 24px #781c2c24;transition:.2s}
+.intro{
+  max-width:570px;
+  margin:0 auto 28px;
+  line-height:1.9;
+  color:#79535c;
+}
+.btn{
+  border:0;
+  border-radius:99px;
+  background:var(--burgundy);
+  color:white;
+  padding:14px 23px;
+  box-shadow:0 9px 24px #781c2c24;
+  transition:.2s;
+}
 .btn:hover{transform:translateY(-2px);background:var(--wine)}
-.btn.light{background:#fffaf5;color:var(--burgundy);border:1px solid var(--line);box-shadow:none}
+.btn.light{
+  background:#fffaf5;
+  color:var(--burgundy);
+  border:1px solid #ead0d0;
+  box-shadow:none;
+}
 .small-note{font-size:.82rem;color:#9c777d;margin-top:15px}
-.float{position:absolute;z-index:1;color:var(--red);font-size:clamp(1.5rem,4vw,2.5rem);animation:float 4.5s ease-in-out infinite;opacity:.8}
-.float.a{top:18%;left:12%}.float.b{top:25%;right:13%;animation-delay:-1.4s}.float.c{bottom:17%;left:17%;animation-delay:-2.2s}.float.d{bottom:15%;right:17%;animation-delay:-.7s}
+.float{
+  position:absolute;
+  color:var(--red);
+  font-size:2rem;
+  animation:float 4.5s ease-in-out infinite;
+}
+.float.a{top:18%;left:12%}
+.float.b{top:25%;right:13%;animation-delay:-1.4s}
+.float.c{bottom:17%;left:17%;animation-delay:-2.2s}
+.float.d{bottom:15%;right:17%;animation-delay:-.7s}
 @keyframes float{50%{transform:translateY(-13px) rotate(9deg)}}
+
 section{padding:76px 0}
 .section-head{text-align:center;margin-bottom:30px}
-.kicker{color:var(--red);font-size:.75rem;letter-spacing:.17em;text-transform:uppercase}
-h2{font-size:clamp(2rem,6vw,3.2rem);font-weight:normal;font-style:italic;color:var(--wine);margin:10px 0}
-.section-desc{max-width:590px;margin:0 auto;color:var(--muted);line-height:1.85}
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,38px);box-shadow:0 18px 50px #5b101e0b}
-.bouquet-section{background:linear-gradient(180deg,#fff8f1,#f9e8e7 50%,#fff8f1)}
-.bouquet-wrap{max-width:720px;margin:auto;text-align:center}
-.bouquet-stage{position:relative;min-height:390px;display:flex;align-items:flex-end;justify-content:center;padding:20px 10px 0;overflow:hidden}
-.bouquet-stage:before{content:"";position:absolute;bottom:62px;width:min(490px,90%);height:230px;border-radius:50%;background:radial-gradient(ellipse,#f3d5d3aa,transparent 70%)}
-.stems{position:absolute;bottom:105px;width:100%;height:230px;pointer-events:none}
-.stem{position:absolute;bottom:0;left:50%;width:3px;height:var(--h);background:#71856a;border-radius:5px;transform-origin:bottom;transform:rotate(var(--r));opacity:.9}
-.stem:after{content:"";position:absolute;bottom:40%;left:-13px;width:15px;height:8px;border-radius:100% 0 100% 0;background:#82977a;transform:rotate(-25deg)}
-.flower{position:absolute;bottom:calc(105px + var(--lift));left:calc(50% + var(--x));transform:translateX(-50%) scale(.1);opacity:0;border:0;background:transparent;padding:0;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .7s;z-index:2}
-.flower.bloom{transform:translateX(-50%) scale(1);opacity:1}
-.flower:hover{filter:drop-shadow(0 5px 7px #781c2c40)}
-.flower svg{width:var(--size);height:var(--size);overflow:visible;filter:drop-shadow(0 4px 4px #781c2c1c)}
-.flower .petal{fill:var(--petal);stroke:var(--edge);stroke-width:1.1}
-.flower .center{fill:#f5c96b;stroke:#b77d3d;stroke-width:1}
-.vase{position:relative;z-index:3;width:155px;height:150px;margin-bottom:12px;background:linear-gradient(90deg,#e6c9c3,#fff3e8 35%,#e8c8c5 80%,#d9b5b2);clip-path:polygon(12% 0,88% 0,78% 100%,22% 100%);border-radius:10px 10px 28px 28px;box-shadow:inset 12px 0 15px #fff8}
-.vase:before{content:"";position:absolute;top:0;left:10%;width:80%;height:12px;border-radius:50%;background:#fff7ed;border:1px solid #d8b5b0}
-.vase:after{content:"for my favorite girl ♡";position:absolute;top:58px;left:0;width:100%;text-align:center;color:#8c3545;font-size:12px;font-style:italic}
-.bouquet-hint{font-size:.88rem;color:#916b72;margin:4px 0 22px}
-.flower-message{min-height:112px;margin:0 auto 22px;max-width:580px;text-align:center}
-.flower-message strong{display:block;color:var(--burgundy);font-size:1.25rem;font-weight:normal;font-style:italic;margin-bottom:8px}
-.flower-message p{line-height:1.8;margin:0;color:#77545c}
-.progress{font-size:.82rem;color:#9a7078;margin-bottom:20px}
+.kicker{
+  color:var(--red);
+  font-size:.75rem;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+h2{
+  font-size:clamp(2rem,6vw,3.2rem);
+  font-weight:normal;
+  font-style:italic;
+  color:var(--wine);
+  margin:10px 0;
+}
+.section-desc{
+  max-width:590px;
+  margin:0 auto;
+  color:var(--muted);
+  line-height:1.85;
+}
+.panel{
+  background:#fffdf9;
+  border:1px solid #ead0d0;
+  border-radius:26px;
+  padding:clamp(22px,5vw,38px);
+  box-shadow:0 18px 50px #5b101e0b;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .75s,transform .75s;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* BOUQUET */
+.bouquet-section{
+  background:linear-gradient(155deg,#300710,#650f24 48%,#390914);
+  color:#fff5f1;
+}
+.bouquet-section .kicker{color:#ffb3c0}
+.bouquet-section h2{color:#fff1ed}
+.bouquet-section .section-desc{color:#f0cbd0}
+.bouquet-section .panel{
+  background:linear-gradient(160deg,#76152d,#4a0b1d);
+  border:1px solid #b84b63;
+  box-shadow:0 20px 55px #21040d70;
+}
+.bouquet-stage{
+  position:relative;
+  height:450px;
+  width:100%;
+  overflow:hidden;
+  isolation:isolate;
+}
+.bouquet-glow{
+  position:absolute;
+  width:85%;
+  height:220px;
+  bottom:30px;
+  left:7.5%;
+  background:radial-gradient(ellipse,#f06a8045,transparent 70%);
+  pointer-events:none;
+}
+.stems{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+.stem{
+  position:absolute;
+  bottom:112px;
+  left:50%;
+  width:4px;
+  height:var(--height);
+  border-radius:100%;
+  background:linear-gradient(90deg,#496c43,#a4c48a,#527b50);
+  transform-origin:bottom center;
+  transform:translateX(-50%) rotate(var(--angle));
+  box-shadow:0 0 5px #a5c78a55;
+}
+.leaf{
+  position:absolute;
+  width:27px;
+  height:13px;
+  background:linear-gradient(130deg,#b4d49a,#557c4c);
+  border-radius:100% 0 100% 0;
+}
+.leaf.left{left:-23px;top:45%;transform:rotate(-20deg)}
+.leaf.right{right:-23px;top:65%;transform:rotate(195deg)}
+
+.flower{
+  position:absolute;
+  z-index:3;
+  left:var(--x);
+  bottom:calc(112px + var(--lift));
+  width:var(--circle);
+  height:var(--circle);
+  transform:translateX(-50%) scale(.1);
+  opacity:0;
+  display:grid;
+  place-items:center;
+  border:1px solid #ffffff42;
+  border-radius:50%;
+  padding:0;
+  background:radial-gradient(circle at 35% 25%,#ffffff48,#ffffff12 60%,#ffffff06);
+  box-shadow:inset 0 0 18px #ffffff16,0 5px 18px #18030d55;
+  backdrop-filter:blur(4px);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .7s,box-shadow .3s;
+}
+.flower.bloom{
+  transform:translateX(-50%) scale(1);
+  opacity:1;
+}
+.flower:hover,.flower:focus-visible{
+  box-shadow:0 0 0 3px #ffc0ca55,0 0 30px #ff8da8a8,inset 0 0 18px #ffffff28;
+}
+.flower svg{
+  width:76%;
+  height:76%;
+  overflow:visible;
+  filter:drop-shadow(0 5px 5px #22030b66);
+}
+.flower-message{
+  min-height:120px;
+  text-align:center;
+  margin:0 auto 20px;
+}
+.flower-message strong{
+  display:block;
+  color:#ffd4dc;
+  font-size:1.25rem;
+  font-weight:normal;
+  font-style:italic;
+  margin-bottom:8px;
+}
+.flower-message p{
+  line-height:1.8;
+  color:#ffedf0;
+  margin:0;
+}
+.bouquet-hint,.progress{color:#f0c4cc}
+.bouquet-section .btn.light{
+  background:#fff0f1;
+  color:#76152d;
+  border-color:#ffd4dc;
+}
+.vase-wrap{
+  position:absolute;
+  z-index:5;
+  bottom:5px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:125px;
+}
+.vase{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:120px;
+  background:linear-gradient(90deg,#d7c5c6,#fff 30%,#f7eeee 70%,#d5babc);
+  clip-path:polygon(8% 0,92% 0,80% 100%,20% 100%);
+  filter:drop-shadow(0 8px 9px #17030b66);
+}
+.vase-rim{
+  position:absolute;
+  top:0;
+  left:4%;
+  width:92%;
+  height:15px;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid #e8dfe0;
+}
+.vase-label{
+  position:absolute;
+  top:50px;
+  width:100%;
+  text-align:center;
+  color:#9d3047;
+  font-size:13px;
+  font-style:italic;
+}
+@media(max-width:520px){
+  .bouquet-stage{height:390px}
+  .flower{width:var(--mobile-circle);height:var(--mobile-circle)}
+  .vase-wrap{width:130px;height:110px}
+  .vase{height:105px}
+  .vase-label{top:44px}
+}
+
+/* LETTER */
+.letter-section{background:#fff8f1}
 .letter{max-width:720px;margin:auto}
 .letter .stamp{text-align:center;font-size:2.1rem;margin-bottom:12px}
 .letter p{line-height:1.95;margin:0 0 15px}
 .sign{text-align:right;color:var(--burgundy);font-style:italic;margin-top:24px}
+
+/* CAKE */
 .cake-section{background:linear-gradient(180deg,#fff8f1,#f4dddd)}
 .cake-area{text-align:center}
 .cake{position:relative;width:260px;height:220px;margin:20px auto 10px}
-.cake-top{position:absolute;top:80px;left:20px;width:220px;height:55px;border-radius:50%;background:#f8c8c7;border:3px solid #b64a59;z-index:3}
-.cake-body{position:absolute;top:105px;left:24px;width:212px;height:90px;border-radius:0 0 24px 24px;background:linear-gradient(90deg,#a91e36,#d94b60 45%,#a91e36);border-bottom:7px solid #7a182b;z-index:2}
-.cake-body:before{content:"";position:absolute;top:-4px;left:0;width:100%;height:25px;background:#fff0e9;border-radius:0 0 50% 50%;clip-path:polygon(0 0,100% 0,100% 55%,90% 100%,80% 55%,68% 100%,55% 55%,43% 100%,30% 55%,18% 100%,8% 55%,0 100%)}
-.cake-plate{position:absolute;bottom:8px;left:0;width:260px;height:25px;border-radius:50%;background:#ead0c8;border-bottom:5px solid #c59d99}
-.candle{position:absolute;top:35px;width:13px;height:52px;border-radius:5px 5px 2px 2px;background:repeating-linear-gradient(45deg,#fff7eb 0 6px,#d94b60 6px 11px);z-index:4}
-.candle.one{left:88px}.candle.two{left:124px;top:22px;height:65px}.candle.three{left:160px}
-.flame{position:absolute;top:-21px;left:2px;width:10px;height:17px;background:#ffbd48;border-radius:50% 50% 50% 0;transform:rotate(45deg);filter:drop-shadow(0 0 8px #ffb347);animation:flicker .7s infinite alternate}
+.cake-top{
+  position:absolute;top:80px;left:20px;width:220px;height:55px;
+  border-radius:50%;background:#f8c8c7;border:3px solid #b64a59;z-index:3;
+}
+.cake-body{
+  position:absolute;top:105px;left:24px;width:212px;height:90px;
+  border-radius:0 0 24px 24px;
+  background:linear-gradient(90deg,#a91e36,#d94b60 45%,#a91e36);
+  border-bottom:7px solid #7a182b;z-index:2;
+}
+.cake-body:before{
+  content:"";position:absolute;top:-4px;left:0;width:100%;height:25px;
+  background:#fff0e9;border-radius:0 0 50% 50%;
+  clip-path:polygon(0 0,100% 0,100% 55%,90% 100%,80% 55%,68% 100%,55% 55%,43% 100%,30% 55%,18% 100%,8% 55%,0 100%);
+}
+.cake-plate{
+  position:absolute;bottom:8px;left:0;width:260px;height:25px;
+  border-radius:50%;background:#ead0c8;border-bottom:5px solid #c59d99;
+}
+.candle{
+  position:absolute;top:35px;width:13px;height:52px;border-radius:5px 5px 2px 2px;
+  background:repeating-linear-gradient(45deg,#fff7eb 0 6px,#d94b60 6px 11px);z-index:4;
+}
+.candle.one{left:88px}
+.candle.two{left:124px;top:22px;height:65px}
+.candle.three{left:160px}
+.flame{
+  position:absolute;top:-21px;left:2px;width:10px;height:17px;
+  background:#ffbd48;border-radius:50% 50% 50% 0;
+  transform:rotate(45deg);filter:drop-shadow(0 0 8px #ffb347);
+  animation:flicker .7s infinite alternate;
+}
 @keyframes flicker{to{transform:rotate(40deg) scale(.82);opacity:.8}}
 .cake-out .flame{display:none}
 .cake-text{color:var(--muted);line-height:1.8;max-width:540px;margin:12px auto 22px}
-.letter-section{background:#fff8f1}
+
+/* ENVELOPE */
 .secret{max-width:720px;margin:auto;text-align:center}
-.envelope{width:220px;height:150px;position:relative;margin:24px auto 18px;border:0;background:#d88b96;border-radius:8px;display:block;box-shadow:0 13px 28px #781c2c20;overflow:hidden}
+.envelope{
+  width:220px;height:150px;position:relative;margin:24px auto 18px;
+  border:0;background:#d88b96;border-radius:8px;display:block;
+  box-shadow:0 13px 28px #781c2c20;overflow:hidden;
+}
 .env-back{position:absolute;inset:0;background:#e8b8ba}
-.paper{position:absolute;left:14%;width:72%;height:82%;top:7%;background:#fffdf8;color:#77424b;display:grid;place-content:center;line-height:1.6;font-size:.9rem;transition:transform .6s;z-index:1}
-.env-flap{position:absolute;inset:0;background:#bd5364;clip-path:polygon(0 0,100% 0,50% 60%);z-index:3;transform-origin:top;transition:transform .6s}
-.env-front{position:absolute;inset:0;background:#d98794;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:2}
+.paper{
+  position:absolute;left:14%;width:72%;height:82%;top:7%;
+  background:#fffdf8;color:#77424b;display:grid;place-content:center;
+  line-height:1.6;font-size:.9rem;transition:transform .6s;z-index:1;
+}
+.env-flap{
+  position:absolute;inset:0;background:#bd5364;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  z-index:3;transform-origin:top;transition:transform .6s;
+}
+.env-front{
+  position:absolute;inset:0;background:#d98794;
+  clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:2;
+}
 .seal{position:absolute;z-index:4;left:calc(50% - 14px);top:53%;font-size:1.5rem}
 .envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
 .envelope.open .paper{transform:translateY(-20px)}
 .hidden-note{display:none;text-align:left;margin:25px auto 0}
 .hidden-note.show{display:block;animation:appear .6s ease}
 @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
 .music{text-align:center}
 .music .disc{font-size:2.5rem}
 .music p{line-height:1.8}
 .song-note{font-size:.9rem;color:var(--muted)}
-.final{background:linear-gradient(180deg,#f7e2e2,#fff8f1);text-align:center}
-footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px solid var(--line)}
+.final{
+  background:linear-gradient(180deg,#f7e2e2,#fff8f1);
+  text-align:center;
+}
+footer{
+  text-align:center;padding:30px 15px 45px;
+  color:#8b6870;border-top:1px solid #ead0d0;
+}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}
-.conf{position:absolute;top:-35px;animation:fall linear forwards;font-size:1.3rem}
+.conf{
+  position:absolute;top:-35px;
+  animation:fall linear forwards;font-size:1.3rem;
+}
 @keyframes fall{to{transform:translateY(110vh) rotate(320deg);opacity:.1}}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .75s,transform .75s}
-.reveal.visible{opacity:1;transform:none}
-@media(max-width:520px){section{padding:60px 0}.bouquet-stage{min-height:340px}.flower svg{width:calc(var(--size)*.82);height:calc(var(--size)*.82)}.vase{width:130px;height:125px}.flower{bottom:calc(90px + var(--lift))}.stems{bottom:90px}.cake{transform:scale(.9);margin-top:0;margin-bottom:0}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-
-/* Digital bouquet: pixel-art flowers inspired by the reference */
-.bouquet-section{background:linear-gradient(155deg,#390914 0%,#650f24 48%,#3b0917 100%);color:#fff5f1}
-.bouquet-section .kicker{color:#ffb3c0}
-.bouquet-section h2{color:#fff1ed}
-.bouquet-section .section-desc{color:#f0cbd0}
-.bouquet-section .panel{background:linear-gradient(160deg,#76152d,#4a0b1d);border:1px solid #b84b63;box-shadow:0 20px 55px #21040d70;color:#fff5f1}
-.bouquet-stage{min-height:430px;overflow:visible}
-.bouquet-stage:before{bottom:58px;width:min(500px,94%);height:240px;background:radial-gradient(ellipse,#f06a8040,transparent 70%)}
-.stems{bottom:105px;height:260px}
-.stem{width:4px;background:linear-gradient(90deg,#6b9b68,#b2d18b,#527b50);box-shadow:0 0 5px #b1d28b55;transform:rotate(var(--r))}
-.stem:after{width:18px;height:9px;background:#8fb779;box-shadow:0 0 4px #9fce8b66}
-.flower{bottom:calc(105px + var(--lift));left:var(--x);width:82px;height:82px;display:grid;place-items:center;border:1px solid #ffffff35;border-radius:50%;background:radial-gradient(circle at 40% 32%,#ffffff35,#ffffff13 58%,#ffffff08);box-shadow:inset 0 0 15px #ffffff14,0 5px 18px #18030d55;backdrop-filter:blur(2px);transform:translateX(-50%) scale(.1)}
-.flower.bloom{transform:translateX(-50%) scale(1)}
-.flower:hover,.flower:focus-visible{box-shadow:0 0 0 3px #ffc0ca55,0 0 28px #ff8da8a8,inset 0 0 18px #ffffff28;filter:none}
-.flower svg{width:54px;height:54px;filter:drop-shadow(0 3px 2px #22030b66);shape-rendering:crispEdges;image-rendering:pixelated}
-.flower .petal{stroke:none;shape-rendering:crispEdges}
-.flower .center{stroke:none}
-.vase{width:150px;height:128px;margin-bottom:10px;background:linear-gradient(90deg,#e8e4e4,#fff 35%,#f7eeee 78%,#d8c9ca);clip-path:polygon(8% 0,92% 0,82% 100%,18% 100%);filter:drop-shadow(0 8px 9px #17030b66)}
-.vase:before{left:4%;width:92%;height:13px;background:#fff;border:2px solid #e8dfe0}
-.vase:after{content:"for aiwa ♡";top:52px;color:#9d3047;font-size:13px}
-.bouquet-hint,.progress{color:#f0c4cc}
-.flower-message strong{color:#ffd4dc}
-.flower-message p{color:#ffedf0}
-.bouquet-section .btn.light{background:#fff0f1;color:#76152d;border-color:#ffd4dc}
-@media(max-width:520px){.bouquet-stage{min-height:360px}.stems{bottom:88px;height:225px}.flower{width:66px;height:66px;bottom:calc(88px + var(--lift))}.flower svg{width:46px;height:46px}.vase{width:125px;height:112px}.flower-message{min-height:130px}}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
+
 <body>
 <div id="confetti" aria-hidden="true"></div>
 
 <header class="hero">
-  <span class="float a">♡</span><span class="float b">✦</span><span class="float c">🌹</span><span class="float d">୨୧</span>
+  <span class="float a">♡</span>
+  <span class="float b">✦</span>
+  <span class="float c">🌹</span>
+  <span class="float d">୨୧</span>
+
   <div class="hero-inner wrap">
     <span class="eyebrow">a little something for you</span>
     <h1>happy birthday,<em>Aiwa ♡</em></h1>
-    <p class="intro">aku sebenernya bingung mau bikin apa, tapi aku pengen kamu punya sesuatu yang bisa dibuka pelan-pelan. jadiii, ini aku bikinin khusus buat kamu hehe. jangan diketawain yaa.</p>
+    <p class="intro">
+      aku sebenernya bingung mau bikin apa, tapi aku pengen kamu punya sesuatu yang bisa dibuka pelan-pelan. jadiii, ini aku bikinin khusus buat kamu hehe. jangan diketawain yaa.
+    </p>
     <button class="btn" onclick="startGift()">open your little gift ♡</button>
     <div class="small-note">made with lots of love, obviously.</div>
   </div>
 </header>
 
 <main>
+
 <section class="bouquet-section" id="bouquet">
-  <div class="wrap bouquet-wrap reveal">
+  <div class="wrap reveal">
     <div class="section-head">
       <div class="kicker">picked just for you</div>
       <h2>a bouquet for my girl</h2>
-      <p class="section-desc">aku nggak bisa ngasih bunga beneran sekarang, jadi aku bikinin yang ini dulu. pencet bunganya satu-satu yaa, ada sesuatu buat kamu di masing-masing bunga.</p>
+      <p class="section-desc">
+        aku nggak bisa ngasih bunga beneran sekarang, jadi aku bikinin yang ini dulu. pencet bunganya satu-satu yaa, ada sesuatu buat kamu di masing-masing bunga.
+      </p>
     </div>
+
     <div class="panel">
-      <div class="bouquet-stage" id="bouquetStage" aria-label="Bouquet bunga interaktif">
+      <div class="bouquet-stage" id="bouquetStage">
+        <div class="bouquet-glow"></div>
         <div class="stems" id="stems"></div>
-        <div class="vase"></div>
+
+        <div class="vase-wrap">
+          <div class="vase"></div>
+          <div class="vase-rim"></div>
+          <div class="vase-label">for my favorite girl ♡</div>
+        </div>
       </div>
-      <div class="bouquet-hint">psst… coba pencet bunganya ♡</div>
+
+      <div class="bouquet-hint" style="text-align:center">
+        psst… coba pencet bunganya ♡
+      </div>
+
       <div class="flower-message" id="flowerMessage" aria-live="polite">
         <strong>little flowers, lots of love</strong>
         <p>setiap bunga punya pesan kecil. pilih satu, bbe.</p>
       </div>
-      <div class="progress" id="flowerProgress">0 dari 6 bunga sudah kamu buka ♡</div>
-      <button class="btn light" onclick="showAllFlowers()">buka semua pesannya</button>
+
+      <div class="progress" id="flowerProgress" style="text-align:center">
+        0 dari 6 bunga sudah kamu buka ♡
+      </div>
+
+      <div style="text-align:center">
+        <button class="btn light" onclick="showAllFlowers()">buka semua pesannya</button>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="letter-section" id="letter">
   <div class="wrap reveal">
-    <div class="section-head"><div class="kicker">a note from me</div><h2>buat kamu, sayang</h2><p class="section-desc">aku mau bilang sesuatu, jadi baca dulu yaa.</p></div>
+    <div class="section-head">
+      <div class="kicker">a note from me</div>
+      <h2>buat kamu, sayang</h2>
+      <p class="section-desc">aku mau bilang sesuatu, jadi baca dulu yaa.</p>
+    </div>
+
     <article class="panel letter">
       <div class="stamp">🎀</div>
       <p>happy birthday, sayanggg ♡</p>
@@ -187,15 +495,25 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
 
 <section class="cake-section" id="cake">
   <div class="wrap reveal cake-area">
-    <div class="section-head"><div class="kicker">one birthday wish</div><h2>make a wish, bbe!</h2><p class="section-desc">sebelum lanjut, kamu harus tiup lilinnya dulu. boleh pencet tombolnya kalau mic kamu nggak bisa dipakai hehe.</p></div>
+    <div class="section-head">
+      <div class="kicker">one birthday wish</div>
+      <h2>make a wish, bbe!</h2>
+      <p class="section-desc">sebelum lanjut, kamu harus tiup lilinnya dulu. pencet tombolnya kalau mic kamu nggak bisa dipakai hehe.</p>
+    </div>
+
     <div class="panel">
       <div class="cake" id="cakeArt">
         <div class="candle one"><span class="flame"></span></div>
         <div class="candle two"><span class="flame"></span></div>
         <div class="candle three"><span class="flame"></span></div>
-        <div class="cake-top"></div><div class="cake-body"></div><div class="cake-plate"></div>
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+        <div class="cake-plate"></div>
       </div>
-      <p class="cake-text" id="cakeText">tutup mata sebentar, bikin wish yang bagus, terus tiup lilinnya yaa ♡</p>
+
+      <p class="cake-text" id="cakeText">
+        tutup mata sebentar, bikin wish yang bagus, terus tiup lilinnya yaa ♡
+      </p>
       <button class="btn" id="blowButton" onclick="blowCandles()">tiup lilinnya! ♡</button>
       <p class="small-note">nggak perlu buru-buru. wish-nya yang bagus ya.</p>
     </div>
@@ -204,9 +522,22 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
 
 <section id="secret">
   <div class="wrap reveal secret">
-    <div class="section-head"><div class="kicker">psst, just for you</div><h2>one tiny secret ♡</h2><p class="section-desc">masih ada satu hal lagi. coba buka amplopnya deh hehe.</p></div>
-    <button class="envelope" id="envelope" aria-label="Buka amplop rahasia" onclick="openEnvelope()"><span class="env-back"></span><span class="paper">one little thing<br>i want you to know ♡</span><span class="env-flap"></span><span class="env-front"></span><span class="seal">♥</span></button>
+    <div class="section-head">
+      <div class="kicker">psst, just for you</div>
+      <h2>one tiny secret ♡</h2>
+      <p class="section-desc">masih ada satu hal lagi. coba buka amplopnya deh hehe.</p>
+    </div>
+
+    <button class="envelope" id="envelope" aria-label="Buka amplop rahasia" onclick="openEnvelope()">
+      <span class="env-back"></span>
+      <span class="paper">one little thing<br>i want you to know ♡</span>
+      <span class="env-flap"></span>
+      <span class="env-front"></span>
+      <span class="seal">♥</span>
+    </button>
+
     <button class="btn light" id="openSecret" onclick="openEnvelope()">open the letter</button>
+
     <article class="panel hidden-note" id="secretNote">
       <p><strong>hey, you. ♡</strong></p>
       <p>hehe ketemu ini juga yaa. sebenernya aku bingung mau naro apa di sini, tapi rasanya sayang aja kalau aku bikin sesuatu buat kamu terus cuma isinya ucapan happy birthday doang.</p>
@@ -220,11 +551,18 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
 
 <section id="music">
   <div class="wrap reveal music">
-    <div class="section-head"><div class="kicker">one song for you</div><h2>this one's yours 🎧</h2><p class="section-desc">aku pengen kamu dengerin ini hehe.</p></div>
+    <div class="section-head">
+      <div class="kicker">one song for you</div>
+      <h2>this one's yours 🎧</h2>
+      <p class="section-desc">aku pengen kamu dengerin ini hehe.</p>
+    </div>
+
     <div class="panel">
       <div class="disc">🎵</div>
       <p><strong>Lovesong — The Cure</strong></p>
-      <a class="btn" href="https://youtu.be/hXCKLJGLENs" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none">♡ play our song ♡</a>
+      <a class="btn" href="https://youtu.be/hXCKLJGLENs" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none">
+        ♡ play our song ♡
+      </a>
       <p class="song-note">entah kenapa lagu ini bikin aku inget kamu. so, this is for you. ♡</p>
     </div>
   </div>
@@ -239,45 +577,102 @@ footer{text-align:center;padding:30px 15px 45px;color:#8b6870;border-top:1px sol
     <p id="lastMessage" style="min-height:2em;color:var(--burgundy);margin-top:20px"></p>
   </div>
 </section>
+
 </main>
-<footer>made for aiwa, by someone who adores her ♡<br><span class="small-note">with love, always rooting for you.</span></footer>
+
+<footer>
+  made for aiwa, by someone who adores her ♡
+  <br><span class="small-note">with love, always rooting for you.</span>
+</footer>
 
 <script>
 const flowers=[
- {name:"mawar merah",meaning:"because you're my favorite",message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe.",petal:"#d82e4c",edge:"#8d1d31",x:"17%",lift:125,size:92,rotate:-15,type:"rose"},
- {name:"tulip merah",meaning:"my little happiness",message:"aku suka hal-hal kecil tentang kamu. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa.",petal:"#ef5363",edge:"#a6243a",x:"30%",lift:205,size:82,rotate:-8,type:"tulip"},
- {name:"carnation merah",meaning:"a soft kind of love",message:"buat kamu yang kadang suka capek tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. nggak harus kuat terus.",petal:"#ed6578",edge:"#a63a4c",x:"43%",lift:245,size:88,rotate:-2,type:"carnation"},
- {name:"mawar merah muda",meaning:"just because it's you",message:"nggak ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me.",petal:"#f39aaa",edge:"#c75a6b",x:"57%",lift:225,size:82,rotate:5,type:"pink"},
- {name:"tulip burgundy",meaning:"stay a little longer",message:"aku masih mau dengerin banyak cerita kamu, mau tau hal-hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen random bareng kamu. so please, keep telling me things, okay?",petal:"#a92b4a",edge:"#5d1429",x:"70%",lift:190,size:88,rotate:10,type:"burgundy"},
- {name:"baby's breath",meaning:"a little reminder",message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi nggak merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu, bbe.",petal:"#fff8f0",edge:"#d8b8b8",x:"83%",lift:135,size:78,rotate:16,type:"baby"}
+ {
+  name:"mawar merah",
+  meaning:"because you're my favorite",
+  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe.",
+  color:"#d52d4c",dark:"#78152d",x:15,lift:130,angle:-17,type:"rose"
+ },
+ {
+  name:"tulip merah",
+  meaning:"my little happiness",
+  message:"aku suka hal-hal kecil tentang kamu. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa.",
+  color:"#ed5268",dark:"#a51c36",x:29,lift:215,angle:-9,type:"tulip"
+ },
+ {
+  name:"carnation merah",
+  meaning:"a soft kind of love",
+  message:"buat kamu yang kadang suka capek tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. nggak harus kuat terus.",
+  color:"#e65b79",dark:"#a32649",x:43,lift:265,angle:-3,type:"carnation"
+ },
+ {
+  name:"mawar merah muda",
+  meaning:"just because it's you",
+  message:"nggak ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me.",
+  color:"#f09baa",dark:"#c75a75",x:57,lift:245,angle:5,type:"pink"
+ },
+ {
+  name:"tulip burgundy",
+  meaning:"stay a little longer",
+  message:"aku masih mau dengerin banyak cerita kamu, mau tau hal-hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen random bareng kamu. so please, keep telling me things, okay?",
+  color:"#aa294a",dark:"#5d1429",x:71,lift:205,angle:11,type:"burgundy"
+ },
+ {
+  name:"baby's breath",
+  meaning:"a little reminder",
+  message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi nggak merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu, bbe.",
+  color:"#fff6ee",dark:"#d9b5bd",x:85,lift:140,angle:18,type:"baby"
+ }
 ];
 
 const opened=new Set();
 
-function flowerSVG(color,edge,type){
- const palettes={
-  rose:["#ff7180",color,"#b91f3d","#ffe1d9"],
-  tulip:["#ff9a9d",color,"#b91f3d"],
-  carnation:["#ff9aaa",color,"#b52c4a","#ffd5d9"],
-  pink:["#ffd0d5",color,"#cf647a"],
-  burgundy:["#d85a72",color,"#64152b"],
-  baby:["#ffffff","#f8e8e8","#d8b8c3"]
- };
- const c=palettes[type]||[color,color,edge];
- const rect=(x,y,w,h,fill)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}"/>`;
- let pixels="";
-
+function petalPath(type){
  if(type==="tulip"||type==="burgundy"){
-  pixels+=rect(21,7,12,8,c[0])+rect(15,14,24,12,c[1])+rect(11,23,32,10,c[1])+rect(17,31,20,8,c[2])+rect(23,37,8,7,c[2]);
- }else if(type==="baby"){
-  pixels+=rect(20,18,10,10,c[0])+rect(12,25,10,10,c[1])+rect(30,25,10,10,c[0])+rect(21,34,10,10,c[1])+rect(22,25,8,8,"#f3d47a");
+  return `<path d="M50 70 C24 56 25 31 37 13 C42 23 47 28 50 33 C54 24 60 17 64 13 C77 32 77 57 50 70Z"/>`;
+ }
+ return `<ellipse cx="50" cy="29" rx="13" ry="25"/>`;
+}
+
+function flowerSVG(f){
+ let petals="";
+ let count=f.type==="carnation"?12:f.type==="baby"?7:8;
+
+ if(f.type==="tulip"||f.type==="burgundy"){
+  petals=petalPath(f.type);
  }else{
-  pixels+=rect(19,5,12,9,c[0])+rect(9,14,32,9,c[1])+rect(5,23,40,12,c[1])+rect(10,35,30,9,c[1])+rect(18,44,14,7,c[2])+rect(19,20,12,12,c[3]||"#ffd28a");
+  for(let i=0;i<count;i++){
+   const angle=i*360/count;
+   const width=f.type==="carnation"?11:13;
+   const height=f.type==="carnation"?22:25;
+   petals+=`<ellipse cx="50" cy="29" rx="${width}" ry="${height}" transform="rotate(${angle} 50 50)"/>`;
+  }
  }
 
- pixels+=rect(8,17,5,6,"#ffffff55")+rect(37,31,5,5,c[2])+rect(40,49,8,5,"#83b96d")+rect(34,54,12,5,"#5f995b");
+ const center=f.type==="baby"?"#e9d29a":"#f4c66c";
 
- return `<svg viewBox="0 0 56 62" role="img" aria-label="bunga pixel art" shape-rendering="crispEdges"><g>${pixels}</g></svg>`;
+ return `
+ <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <radialGradient id="petal-${f.type}" cx="32%" cy="23%" r="80%">
+    <stop offset="0%" stop-color="#fff" stop-opacity=".72"/>
+    <stop offset="35%" stop-color="${f.color}"/>
+    <stop offset="100%" stop-color="${f.dark}"/>
+   </radialGradient>
+   <radialGradient id="center-${f.type}">
+    <stop offset="0%" stop-color="#fff0b2"/>
+    <stop offset="100%" stop-color="${center}"/>
+   </radialGradient>
+  </defs>
+  <g fill="url(#petal-${f.type})" stroke="${f.dark}" stroke-width=".7">
+   ${petals}
+  </g>
+  <circle cx="50" cy="50" r="12" fill="url(#center-${f.type})"/>
+  <circle cx="46" cy="46" r="2.5" fill="#fff5d6"/>
+  <circle cx="54" cy="47" r="2" fill="#b98539"/>
+  <circle cx="50" cy="54" r="2" fill="#b98539"/>
+  <path d="M50 64 Q49 73 50 86" fill="none" stroke="#80a56e" stroke-width="2.5" stroke-linecap="round"/>
+ </svg>`;
 }
 
 function buildBouquet(){
@@ -285,38 +680,55 @@ function buildBouquet(){
  const stems=document.getElementById("stems");
 
  flowers.forEach((f,i)=>{
-  const stem=document.createElement("span");
+  const stem=document.createElement("div");
   stem.className="stem";
-  stem.style.setProperty("--h",(145+f.lift*.42)+"px");
-  stem.style.setProperty("--r",f.rotate+"deg");
-  stem.style.left=f.x;
+  stem.style.left=f.x+"%";
+  stem.style.setProperty("--height",(f.lift+35)+"px");
+  stem.style.setProperty("--angle",f.angle+"deg");
+
+  const leaf1=document.createElement("span");
+  leaf1.className="leaf left";
+  const leaf2=document.createElement("span");
+  leaf2.className="leaf right";
+  stem.append(leaf1,leaf2);
   stems.appendChild(stem);
 
-  const b=document.createElement("button");
-  b.className="flower";
-  b.type="button";
-  b.setAttribute("aria-label","Buka pesan "+f.name);
-  b.style.setProperty("--x",f.x);
-  b.style.setProperty("--lift",f.lift+"px");
-  b.innerHTML=flowerSVG(f.petal,f.edge,f.type);
-  b.addEventListener("click",()=>showFlower(i));
-  stage.appendChild(b);
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="flower";
+  button.setAttribute("aria-label","Buka pesan "+f.name);
+  button.style.setProperty("--x",f.x+"%");
+  button.style.setProperty("--lift",f.lift+"px");
+  button.style.setProperty("--circle","88px");
+  button.style.setProperty("--mobile-circle","68px");
+  button.innerHTML=flowerSVG(f);
+  button.addEventListener("click",()=>showFlower(i));
+  stage.appendChild(button);
 
-  setTimeout(()=>b.classList.add("bloom"),250+i*260);
+  setTimeout(()=>button.classList.add("bloom"),250+i*260);
  });
 }
 
 function showFlower(i){
  const f=flowers[i];
  opened.add(i);
- document.getElementById("flowerMessage").innerHTML=`<strong>${f.name} — ${f.meaning}</strong><p>${f.message}</p>`;
- document.getElementById("flowerProgress").textContent=`${opened.size} dari 6 bunga sudah kamu buka ♡`;
+
+ document.getElementById("flowerMessage").innerHTML=
+ `<strong>${f.name} — ${f.meaning}</strong><p>${f.message}</p>`;
+
+ document.getElementById("flowerProgress").textContent=
+ `${opened.size} dari 6 bunga sudah kamu buka ♡`;
 }
 
 function showAllFlowers(){
- flowers.forEach((_,i)=>opened.add(i));
- document.getElementById("flowerMessage").innerHTML="<strong>all six, just for you ♡</strong><p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, bbe.</p>";
- document.getElementById("flowerProgress").textContent="6 dari 6 bunga sudah kamu buka ♡";
+ flowers.forEach((f,i)=>opened.add(i));
+
+ document.getElementById("flowerMessage").innerHTML=
+ `<strong>all six, just for you ♡</strong>
+ <p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, bbe.</p>`;
+
+ document.getElementById("flowerProgress").textContent=
+ "6 dari 6 bunga sudah kamu buka ♡";
 }
 
 function startGift(){
@@ -327,8 +739,11 @@ function startGift(){
 function blowCandles(){
  const cake=document.getElementById("cakeArt");
  if(cake.classList.contains("cake-out"))return;
+
  cake.classList.add("cake-out");
- document.getElementById("cakeText").textContent="YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
+ document.getElementById("cakeText").textContent=
+ "YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
+
  document.getElementById("blowButton").textContent="wish sent! ♡";
  document.getElementById("blowButton").disabled=true;
  rainHearts();
@@ -359,15 +774,18 @@ function rainHearts(){
  if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";
 }
 
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
- if(e.isIntersecting){
-  e.target.classList.add("visible");
-  observer.unobserve(e.target);
- }
-}),{threshold:.1});
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting){
+   e.target.classList.add("visible");
+   observer.unobserve(e.target);
+  }
+ });
+},{threshold:.1});
 
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 buildBouquet();
 </script>
+
 </body>
 </html>
