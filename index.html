@@ -14,7 +14,6 @@
   --pink:#f1b5bf;
   --cream:#fff7f0;
   --ink:#542832;
-  --green:#78976b;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -27,6 +26,7 @@ body{
 button{font:inherit;cursor:pointer}
 .wrap{width:min(900px,91%);margin:auto}
 
+/* HERO */
 .hero{
   min-height:100svh;
   display:grid;
@@ -87,6 +87,9 @@ h1 em{display:block;color:var(--rose)}
   color:var(--wine);
   border:1px solid #e8c4c8;
 }
+.btn:disabled{opacity:.6;cursor:default}
+
+/* GENERAL */
 section{padding:78px 0}
 .section-head{text-align:center;margin-bottom:30px}
 .kicker{
@@ -143,24 +146,44 @@ h2{
   max-width:700px;
   margin:auto;
   position:relative;
-  aspect-ratio:700/500;
+  aspect-ratio:700/620;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  isolation:isolate;
 }
-.bouquet-art{
+.bouquet-photo{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
-  display:block;
+  object-fit:contain;
+  object-position:center;
+  filter:drop-shadow(0 18px 22px #16030b70);
+  border-radius:15px;
+  z-index:0;
+}
+.bouquet-stage:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,#31071118 0%,transparent 60%,#31071135 100%);
+  pointer-events:none;
+  z-index:1;
 }
 .flower-hit{
   position:absolute;
-  width:13%;
+  width:12%;
   aspect-ratio:1;
-  border:1px solid #ffffff55;
+  border:1px solid #fff9;
   border-radius:50%;
-  background:radial-gradient(circle at 35% 25%,#ffffff40,#ffffff0b 75%);
-  box-shadow:inset 0 0 15px #ffffff20,0 5px 18px #17020b66;
+  background:radial-gradient(circle,#fff8 0%,#fff2 65%,#fff0 100%);
+  box-shadow:0 0 0 4px #ffffff18,0 5px 18px #17020b66;
   display:grid;
   place-items:center;
-  padding:2%;
+  color:white;
+  font-size:clamp(12px,2vw,20px);
+  text-shadow:0 2px 5px #400817;
   transform:translate(-50%,-50%) scale(.2);
   opacity:0;
   transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,box-shadow .2s;
@@ -172,12 +195,11 @@ h2{
   opacity:1;
 }
 .flower-hit:hover{
-  box-shadow:0 0 0 3px #ffc4ce55,0 0 25px #ff91a8;
+  box-shadow:0 0 0 5px #ffc4ce55,0 0 25px #ff91a8;
 }
-.flower-hit svg{
-  width:100%;
-  height:100%;
-  overflow:visible;
+.flower-hit:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:5px;
 }
 .flower-message{
   text-align:center;
@@ -205,12 +227,17 @@ h2{
 }
 .bouquet-buttons{text-align:center}
 
-/* SURAT */
+/* LETTER */
 .letter-section{background:#fff8f1}
 .letter p{line-height:1.95;margin:0 0 16px}
-.signature{text-align:right;color:var(--red);font-style:italic;margin-top:25px}
+.signature{
+  text-align:right;
+  color:var(--red);
+  font-style:italic;
+  margin-top:25px;
+}
 
-/* KUE */
+/* CAKE */
 .cake-section{background:linear-gradient(#fff8f1,#f3dddd)}
 .cake-area{text-align:center}
 .cake{
@@ -275,7 +302,7 @@ h2{
   margin:15px auto 22px;
 }
 
-/* AMPLOP */
+/* ENVELOPE */
 .secret{text-align:center;max-width:720px;margin:auto}
 .envelope{
   position:relative;
@@ -327,7 +354,10 @@ h2{
   margin-top:25px;
 }
 .hidden-note.show{display:block;animation:appear .6s}
-@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes appear{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
 .hidden-note p{line-height:1.9}
 
 /* MUSIC & END */
@@ -357,6 +387,7 @@ footer{
   to{transform:translateY(110vh) rotate(300deg);opacity:0}
 }
 @media(max-width:520px){
+  .bouquet-stage{aspect-ratio:700/650}
   .flower-hit{width:14%}
 }
 @media(prefers-reduced-motion:reduce){
@@ -390,7 +421,7 @@ footer{
 <div class="wrap reveal">
   <div class="section-head">
     <div class="kicker">PICKED JUST FOR YOU</div>
-    <h2>a bouquet for my darling </h2>
+    <h2>a bouquet for my darling</h2>
     <p class="desc">
       aku ngga bisa ngasih bunga beneran sekarang, jadi aku bikinin yang ini dulu. pencet bunganya satu satu yaa, ada sesuatu buat kamu di masing masing bunga.
     </p>
@@ -399,178 +430,32 @@ footer{
   <div class="panel bouquet-panel">
     <div class="bouquet-stage" id="bouquetStage">
 
-      <!-- TANGKAI DAN VAS -->
-      <svg class="bouquet-art" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- FOTO BOUQUET REALISTIS -->
+      <img
+        class="bouquet-photo"
+        src="https://images.unsplash.com/photo-1570118281125-84ec73b8008a?auto=format&fit=crop&w=1400&q=90"
+        alt="A bouquet of beautiful red roses"
+      >
 
-        <defs>
-          <linearGradient id="stemColor" x1="0" x2="1">
-            <stop stop-color="#476b43"/>
-            <stop offset=".5" stop-color="#a1c487"/>
-            <stop offset="1" stop-color="#54794b"/>
-          </linearGradient>
-          <linearGradient id="vaseColor" x1="0" x2="1">
-            <stop stop-color="#cdb8b9"/>
-            <stop offset=".3" stop-color="#fff8f4"/>
-            <stop offset=".7" stop-color="#f5e8e5"/>
-            <stop offset="1" stop-color="#cbb1b4"/>
-          </linearGradient>
-          <linearGradient id="vaseShadow" x1="0" x2="1">
-            <stop stop-color="#d1b6b8"/>
-            <stop offset=".5" stop-color="#fff"/>
-            <stop offset="1" stop-color="#d3b5b8"/>
-          </linearGradient>
-        </defs>
+      <!-- TITIK INTERAKTIF DI ATAS BUNGA -->
+      <button class="flower-hit" style="left:24%;top:31%"
+        onclick="showFlower(0)" aria-label="Mawar merah">♡</button>
 
-        <!-- TANGKAI: SEMUA BERTEMU DI DALAM VAS -->
-        <g fill="none" stroke="url(#stemColor)" stroke-width="4" stroke-linecap="round">
-          <path d="M80 210 C75 280 130 330 350 386"/>
-          <path d="M190 130 C185 230 230 320 350 386"/>
-          <path d="M295 85 C295 210 315 300 350 386"/>
-          <path d="M405 95 C405 210 385 300 350 386"/>
-          <path d="M510 140 C515 240 465 325 350 386"/>
-          <path d="M620 215 C615 285 540 340 350 386"/>
-        </g>
+      <button class="flower-hit" style="left:40%;top:21%"
+        onclick="showFlower(1)" aria-label="Tulip merah">♡</button>
 
-        <!-- DAUN DIHILANGKAN -->
+      <button class="flower-hit" style="left:55%;top:24%"
+        onclick="showFlower(2)" aria-label="Carnation merah">♡</button>
 
-        <!-- VAS: MENUTUP UJUNG TANGKAI -->
-        <path d="M248 365 L452 365 L428 485 L272 485Z"
-          fill="url(#vaseColor)" stroke="#e5cfd0" stroke-width="2"/>
+      <button class="flower-hit" style="left:72%;top:33%"
+        onclick="showFlower(3)" aria-label="Mawar pink">♡</button>
 
-        <ellipse cx="350" cy="366" rx="103" ry="15"
-          fill="#fffaf8" stroke="#e4cfd0" stroke-width="3"/>
+      <button class="flower-hit" style="left:34%;top:47%"
+        onclick="showFlower(4)" aria-label="Tulip burgundy">♡</button>
 
-        <ellipse cx="350" cy="369" rx="91" ry="8"
-          fill="#c6a6aa" opacity=".3"/>
+      <button class="flower-hit" style="left:65%;top:48%"
+        onclick="showFlower(5)" aria-label="Baby's breath">♡</button>
 
-        <path d="M279 398 Q285 442 286 466"
-          stroke="#fff" stroke-width="5" opacity=".45" fill="none"/>
-
-        <text x="350" y="432" text-anchor="middle"
-          fill="#9d3047" font-size="15" font-style="italic">
-          for my love
-        </text>
-        <text x="350" y="451" text-anchor="middle"
-          fill="#b45b6c" font-size="12">♡</text>
-
-      </svg>
-
-      <!-- BUNGA 1: MAWAR -->
-      <button class="flower-hit" style="left:11.43%;top:42%"
-        onclick="showFlower(0)" aria-label="red roses">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <radialGradient id="rose1" cx="30%" cy="25%">
-              <stop stop-color="#ffb5c1"/>
-              <stop offset=".45" stop-color="#df4964"/>
-              <stop offset="1" stop-color="#81132e"/>
-            </radialGradient>
-          </defs>
-          <g fill="url(#rose1)" stroke="#8d1934" stroke-width=".7">
-            <ellipse cx="50" cy="28" rx="15" ry="27"/>
-            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(45 50 50)"/>
-            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(90 50 50)"/>
-            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(135 50 50)"/>
-          </g>
-          <path d="M38 48 Q40 30 53 36 Q67 42 57 55 Q48 65 39 54 Q34 47 44 43 Q51 40 54 48"
-            fill="none" stroke="#ffb5c1" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      <!-- BUNGA 2: TULIP -->
-      <button class="flower-hit" style="left:27.14%;top:26%"
-        onclick="showFlower(1)" aria-label="red tulip">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <linearGradient id="tulip1" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#ffb4c0"/>
-              <stop offset=".45" stop-color="#ed526b"/>
-              <stop offset="1" stop-color="#9b1834"/>
-            </linearGradient>
-          </defs>
-          <path d="M50 84 C15 67 25 28 36 15 Q43 28 50 33 Q56 24 65 15 C81 39 77 69 50 84Z"
-            fill="url(#tulip1)" stroke="#9b1834" stroke-width="1"/>
-          <path d="M50 78 Q43 43 50 23 Q60 49 50 78Z"
-            fill="#ffb4c0" opacity=".55"/>
-        </svg>
-      </button>
-
-      <!-- BUNGA 3: CARNATION -->
-      <button class="flower-hit" style="left:42.14%;top:17%"
-        onclick="showFlower(2)" aria-label="red carnation">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <radialGradient id="carnation1">
-              <stop stop-color="#ffc4ce"/>
-              <stop offset=".65" stop-color="#df5375"/>
-              <stop offset="1" stop-color="#a21e43"/>
-            </radialGradient>
-          </defs>
-          <g fill="url(#carnation1)" stroke="#a21e43" stroke-width=".6">
-            <ellipse cx="50" cy="30" rx="10" ry="24"/>
-            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(30 50 50)"/>
-            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(60 50 50)"/>
-            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(90 50 50)"/>
-            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(120 50 50)"/>
-            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(150 50 50)"/>
-          </g>
-          <circle cx="50" cy="50" r="9" fill="#f8d37e"/>
-        </svg>
-      </button>
-
-      <!-- BUNGA 4: PINK ROSE -->
-      <button class="flower-hit" style="left:57.86%;top:19%"
-        onclick="showFlower(3)" aria-label="pink rose">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <radialGradient id="pinkrose">
-              <stop stop-color="#fff0ee"/>
-              <stop offset=".5" stop-color="#f0a0ad"/>
-              <stop offset="1" stop-color="#b9516b"/>
-            </radialGradient>
-          </defs>
-          <g fill="url(#pinkrose)" stroke="#c16a7c" stroke-width=".7">
-            <ellipse cx="50" cy="29" rx="15" ry="25"/>
-            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(45 50 50)"/>
-            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(90 50 50)"/>
-            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(135 50 50)"/>
-          </g>
-          <path d="M40 51 Q39 37 50 36 Q64 37 60 51 Q55 64 44 57 Q38 53 47 46"
-            fill="none" stroke="#fff0ee" stroke-width="5"/>
-        </svg>
-      </button>
-
-      <!-- BUNGA 5: BURGUNDY TULIP -->
-      <button class="flower-hit" style="left:72.86%;top:28%"
-        onclick="showFlower(4)" aria-label="tulip burgundy">
-        <svg viewBox="0 0 100 100">
-          <defs>
-            <linearGradient id="tulip2" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#e46a83"/>
-              <stop offset=".45" stop-color="#9b2344"/>
-              <stop offset="1" stop-color="#4c0b20"/>
-            </linearGradient>
-          </defs>
-          <path d="M50 84 C15 67 25 28 36 15 Q43 28 50 33 Q56 24 65 15 C81 39 77 69 50 84Z"
-            fill="url(#tulip2)" stroke="#65132c" stroke-width="1"/>
-          <path d="M50 78 Q43 43 50 23 Q60 49 50 78Z"
-            fill="#f5a2b2" opacity=".45"/>
-        </svg>
-      </button>
-
-      <!-- BUNGA 6: BABY'S BREATH -->
-      <button class="flower-hit" style="left:88.57%;top:43%"
-        onclick="showFlower(5)" aria-label="Baby's breath">
-        <svg viewBox="0 0 100 100">
-          <g fill="#fff8f1" stroke="#e8d5d6" stroke-width=".8">
-            <ellipse cx="50" cy="28" rx="12" ry="24"/>
-            <ellipse cx="50" cy="28" rx="12" ry="24" transform="rotate(60 50 50)"/>
-            <ellipse cx="50" cy="28" rx="12" ry="24" transform="rotate(120 50 50)"/>
-          </g>
-          <circle cx="50" cy="50" r="9" fill="#e9d29a"/>
-          <circle cx="47" cy="47" r="2" fill="#fff"/>
-        </svg>
-      </button>
     </div>
 
     <div class="flower-message" id="flowerMessage" aria-live="polite">
@@ -604,7 +489,7 @@ footer{
     <p>kalau lagi cape, istirahat yaa. jangan maksain diri terus. kamu ngga harus selalu punya energi buat semuanya. aku for you koo, termasuk cerita random yang menurut kamu gapenting. tapi menurut aku penting bb hehehe.</p>
     <p>aku belum bisa ngasih kamu kado yang bisa kamu pegang langsung atau ngerayain bareng kamu. jadi aku bikin ini dulu. sederhana sih, tapi tiap bagiannya aku siapin sambil mikirin kamu.</p>
     <p>pokoknya jaga diri baik baik yaa, sayangg. semoga tahun ini baik sama kamu. i hope you get all the little things that make you happy. ♡</p>
-    <p class="signature">dari anak kecil yang selalu<br>ysayang kepadamu bb ♡</p>
+    <p class="signature">dari anak kecil yang selalu<br>sayang kepadamu bb ♡</p>
   </article>
 </div>
 </section>
@@ -704,109 +589,119 @@ footer{
 <script>
 const flowers=[
  {
-  name:"red rosess",
-  meaning:"because you're my favorite",
-  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
+   name:"red roses",
+   meaning:"because you're my favorite",
+   message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
  },
  {
-  name:"red tulip",
-  meaning:"you're my happiness",
-  message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
+   name:"red tulip",
+   meaning:"you're my happiness",
+   message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
  },
  {
-  name:"red carnation",
-  meaning:"a soft kind of love",
-  message:"buat kamu yang kadang suka cape tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. ngga harus kuat terus."
+   name:"red carnation",
+   meaning:"a soft kind of love",
+   message:"buat kamu yang kadang suka cape tapi masih berusaha jalanin semuanya. aku harap kamu juga inget buat manjain diri sendiri. kamu boleh istirahat, sayang. ngga harus kuat terus."
  },
  {
-  name:"pink rose",
-  meaning:"just because it's you",
-  message:"ngga ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me."
+   name:"pink rose",
+   meaning:"just because it's you",
+   message:"ngga ada alasan khusus buat aku suka sama kamu setiap hari. ya karena kamu kamu aja. and somehow, that's already more than enough for me."
  },
  {
-  name:"burgundy tulip",
-  meaning:"stay a little longer",
-  message:"aku masih mau dengerin banyak cerita kamu, mau tau hal hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen bareng kamu. so please, keep telling me things, okay?"
+   name:"burgundy tulip",
+   meaning:"stay a little longer",
+   message:"aku masih mau dengerin banyak cerita kamu, mau tau hal hal kecil yang terjadi di hari kamu, dan mau punya lebih banyak momen bareng kamu. so please, keep telling me things, okay?"
  },
  {
-  name:"baby's breath",
-  meaning:"a little reminder",
-  message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi ngga merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu ya sayangg."
+   name:"baby's breath",
+   meaning:"a little reminder",
+   message:"bunga kecil ini buat ngingetin kamu kalau kamu disayang. bahkan di hari ketika kamu lagi ngga merasa jadi versi terbaik dari diri kamu, kamu tetap berharga banget buat aku. jangan lupa itu ya sayangg."
  }
 ];
 
 const opened=new Set();
 
 function showFlower(i){
- const f=flowers[i];
- opened.add(i);
- document.getElementById("flowerMessage").innerHTML=
- `<strong>${f.name} — ${f.meaning}</strong><p>${f.message}</p>`;
- document.getElementById("progress").textContent=
- `${opened.size} dari 6 bunga sudah kamu buka ♡`;
+  const f=flowers[i];
+  opened.add(i);
+
+  document.getElementById("flowerMessage").innerHTML=
+    `<strong>${f.name} — ${f.meaning}</strong><p>${f.message}</p>`;
+
+  document.getElementById("progress").textContent=
+    `${opened.size} dari 6 bunga sudah kamu buka ♡`;
 }
 
 function showAllFlowers(){
- flowers.forEach((f,i)=>opened.add(i));
- document.getElementById("flowerMessage").innerHTML=
- `<strong>all six, just for you ♡</strong>
- <p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, sayangg!!! hehe.</p>`;
- document.getElementById("progress").textContent=
- "6 dari 6 bunga sudah kamu buka ♡";
+  flowers.forEach((f,i)=>opened.add(i));
+
+  document.getElementById("flowerMessage").innerHTML=
+    `<strong>all six, just for you ♡</strong>
+    <p>kalau semua bunga ini bisa ngomong, mungkin mereka bakal bilang hal yang sama: kamu disayang banget, Aiwa. happy birthday, sayangg!!! hehe.</p>`;
+
+  document.getElementById("progress").textContent=
+    "6 dari 6 bunga sudah kamu buka ♡";
 }
 
 function startGift(){
- rainHearts();
- document.getElementById("bouquet").scrollIntoView({behavior:"smooth"});
+  rainHearts();
+  document.getElementById("bouquet").scrollIntoView({behavior:"smooth"});
 }
 
 function blowCandles(){
- const cake=document.getElementById("cakeArt");
- if(cake.classList.contains("out"))return;
- cake.classList.add("out");
- document.getElementById("cakeText").textContent=
- "YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
- document.getElementById("blowButton").textContent="wish sent! ♡";
- document.getElementById("blowButton").disabled=true;
- rainHearts();
+  const cake=document.getElementById("cakeArt");
+  if(cake.classList.contains("out"))return;
+
+  cake.classList.add("out");
+
+  document.getElementById("cakeText").textContent=
+    "YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
+
+  document.getElementById("blowButton").textContent="wish sent! ♡";
+  document.getElementById("blowButton").disabled=true;
+
+  rainHearts();
 }
 
 function openEnvelope(){
- document.getElementById("envelope").classList.add("open");
- document.getElementById("secretNote").classList.add("show");
- document.getElementById("openSecret").textContent="your secret is open ♡";
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("secretNote").classList.add("show");
+  document.getElementById("openSecret").textContent="your secret is open ♡";
 }
 
 function rainHearts(){
- const layer=document.getElementById("confetti");
- const symbols=["♡","♥","🌹","✨","💌","🎀"];
- for(let i=0;i<30;i++){
-  const e=document.createElement("span");
-  e.className="conf";
-  e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-  e.style.left=Math.random()*100+"vw";
-  e.style.animationDuration=(2.4+Math.random()*2.2)+"s";
-  e.style.animationDelay=(Math.random()*.45)+"s";
-  layer.appendChild(e);
-  setTimeout(()=>e.remove(),5000);
- }
- const msg=document.getElementById("lastMessage");
- if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";
+  const layer=document.getElementById("confetti");
+  const symbols=["♡","♥","🌹","✨","💌","🎀"];
+
+  for(let i=0;i<30;i++){
+    const e=document.createElement("span");
+    e.className="conf";
+    e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    e.style.left=Math.random()*100+"vw";
+    e.style.animationDuration=(2.4+Math.random()*2.2)+"s";
+    e.style.animationDelay=(Math.random()*.45)+"s";
+    layer.appendChild(e);
+    setTimeout(()=>e.remove(),5000);
+  }
+
+  const msg=document.getElementById("lastMessage");
+  if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";
 }
 
 const observer=new IntersectionObserver(entries=>{
- entries.forEach(e=>{
-  if(e.isIntersecting){
-   e.target.classList.add("visible");
-   observer.unobserve(e.target);
-  }
- });
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("visible");
+      observer.unobserve(e.target);
+    }
+  });
 },{threshold:.1});
 
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
 document.querySelectorAll(".flower-hit").forEach((flower,i)=>{
- setTimeout(()=>flower.classList.add("bloom"),250+i*230);
+  setTimeout(()=>flower.classList.add("bloom"),250+i*230);
 });
 </script>
 </body>
