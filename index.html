@@ -21,7 +21,16 @@
 .letter-section{background:linear-gradient(180deg,#fff8f1,#f8e9e5)}.letter{max-width:760px;margin:auto;padding:clamp(25px,5vw,48px)}.letter p{line-height:2;margin:0 0 17px}.signature{text-align:right;color:var(--red);font-style:italic;margin-top:28px}
 
 /* CAKE */
-.cake-section{background:linear-gradient(160deg,#f6e1e2,#fff8f1)}.cake-area{text-align:center}.cake{position:relative;width:260px;height:220px;margin:25px auto 10px}.plate{position:absolute;bottom:8px;width:260px;height:23px;background:#ead0c8;border-radius:50%;border-bottom:4px solid #c49c98}.cake-body{position:absolute;top:105px;left:24px;width:212px;height:88px;background:linear-gradient(90deg,#a91e36,#dc6371,#a91e36);border-radius:0 0 22px 22px;border-bottom:7px solid #79172b}.cake-top{position:absolute;top:80px;left:20px;width:220px;height:55px;border-radius:50%;background:#f6c6c6;border:3px solid #b64a59;z-index:2}.candle{position:absolute;z-index:4;top:36px;width:13px;height:53px;background:repeating-linear-gradient(45deg,#fff8ee 0 6px,#d94b60 6px 11px);border-radius:5px}.candle:nth-child(1){left:88px}.candle:nth-child(2){left:124px;top:22px;height:67px}.candle:nth-child(3){left:160px}.flame{position:absolute;width:11px;height:17px;top:-20px;left:1px;background:#ffbd48;border-radius:50% 50% 50% 0;transform:rotate(45deg);filter:drop-shadow(0 0 8px #ffb347);animation:flicker .7s infinite alternate}@keyframes flicker{to{transform:rotate(40deg) scale(.8);opacity:.8}}.cake.out .flame{display:none}.cake-text{line-height:1.8;color:#98727a;max-width:520px;margin:15px auto 22px}
+.cake-section{background:linear-gradient(160deg,#f6e1e2,#fff8f1)}.cake-area{text-align:center}.cake{position:relative;width:260px;height:220px;margin:25px auto 10px}.plate{position:absolute;bottom:8px;width:260px;height:23px;background:#ead0c8;border-radius:50%;border-bottom:4px solid #c49c98}.cake-body{position:absolute;top:105px;left:24px;width:212px;height:88px;background:linear-gradient(90deg,#a91e36,#dc6371,#a91e36);border-radius:0 0 22px 22px;border-bottom:7px solid #79172b}.cake-top{position:absolute;top:80px;left:20px;width:220px;height:55px;border-radius:50%;background:#f6c6c6;border:3px solid #b64a59;z-index:2}.candle{position:absolute;z-index:4;top:36px;width:13px;height:53px;background:repeating-linear-gradient(45deg,#fff8ee 0 6px,#d94b60 6px 11px);border-radius:5px}.candle:nth-child(1){left:88px}
+.candle:nth-child(2){left:124px;top:22px;height:67px}
+.candle:nth-child(3){left:160px}
+/* Pastikan tiga lilin terlihat dan susunan kuenya konsisten */
+.cake>.candle:nth-of-type(1){left:88px;top:36px;z-index:4}
+.cake>.candle:nth-of-type(2){left:124px;top:22px;height:67px;z-index:4}
+.cake>.candle:nth-of-type(3){left:160px;top:36px;z-index:4}
+.cake>.cake-body{z-index:1}
+.cake>.cake-top{z-index:2}
+.cake>.plate{z-index:0}.flame{position:absolute;width:11px;height:17px;top:-20px;left:1px;background:#ffbd48;border-radius:50% 50% 50% 0;transform:rotate(45deg);filter:drop-shadow(0 0 8px #ffb347);animation:flicker .7s infinite alternate}@keyframes flicker{to{transform:rotate(40deg) scale(.8);opacity:.8}}.cake.out .flame{display:none}.cake-text{line-height:1.8;color:#98727a;max-width:520px;margin:15px auto 22px}
 
 /* SECRET ENVELOPE */
 #secret{background:#fff8f1}.secret{text-align:center;max-width:720px;margin:auto}.envelope{position:relative;width:220px;height:150px;display:block;margin:28px auto;border:0;border-radius:8px;overflow:hidden;background:#d88b96;box-shadow:0 12px 30px #781c2c20}.env-back{position:absolute;inset:0;background:#e8b8ba}.paper{position:absolute;top:7%;left:14%;width:72%;height:82%;background:#fffdf8;display:grid;place-content:center;color:#77424b;line-height:1.6;transition:.6s}.env-flap{position:absolute;inset:0;background:#bd5364;clip-path:polygon(0 0,100% 0,50% 60%);transform-origin:top;transition:.6s;z-index:3}.env-front{position:absolute;inset:0;background:#d98794;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:2}.seal{position:absolute;z-index:4;left:calc(50% - 12px);top:53%;color:white;font-size:24px}.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}.envelope.open .paper{transform:translateY(-20px)}.hidden-note{display:none;text-align:left;margin-top:25px}.hidden-note.show{display:block;animation:appear .6s}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.hidden-note p{line-height:1.9}
@@ -29,9 +38,9 @@
 /* MUSIC + END */
 #music{background:linear-gradient(180deg,#f8e9e5,#fff8f1)}.music{text-align:center}.music .disc{font-size:45px;animation:spin 9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.music p{line-height:1.8}.final{background:linear-gradient(#f5e0e1,#fff8f1);text-align:center}footer{text-align:center;padding:30px 15px 45px;color:#98727a}
 
-/* FLOWER RAIN */
+/* HUJAN BUNGA: PURE BUNGA TANPA DAUN ATAU BATANG */
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
-.conf{position:absolute;top:-70px;width:var(--size);height:var(--size);opacity:0;pointer-events:none;animation:flowerFall var(--duration) linear forwards}
+.conf{position:absolute;top:-65px;width:var(--size);height:var(--size);opacity:0;pointer-events:none;animation:flowerFall var(--duration) linear forwards}
 .conf svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 3px #3b101522)}
 @keyframes flowerFall{
   0%{transform:translate3d(0,-5vh,0) rotate(0deg) scale(.8);opacity:0}
@@ -80,86 +89,73 @@
           <linearGradient id="vaseColor" x1="0" x2="1"><stop stop-color="#bd9299"/><stop offset=".28" stop-color="#fff0e9"/><stop offset=".65" stop-color="#f3d9d7"/><stop offset="1" stop-color="#b77d88"/></linearGradient>
         </defs>
         <g fill="none" stroke="url(#stemColor)" stroke-width="4.5" stroke-linecap="round">
-          <path d="M80 210 C85 275 170 330 350 386"/><path d="M190 130 C190 235 245 320 350 386"/><path d="M295 85 C295 210 320 310 350 386"/><path d="M405 85 C405 210 380 310 350 386"/><path d="M510 130 C510 235 455 320 350 386"/><path d="M620 210 C615 275 530 330 350 386"/>
+          <path d="M80 210 C85 275 170 330 350 386"/><path d="M190 130 C190 235 245 320 350 386"/><path d="M295 85 C295 210 320 310 350 386"/><path d="M405 95 C405 220 380 310 350 386"/><path d="M510 140 C510 245 455 330 350 386"/><path d="M620 215 C610 290 530 345 350 386"/>
         </g>
-        <g fill="url(#leafColor)" stroke="#315638" stroke-width="1.5">
-          <path d="M150 275 Q90 225 112 205 Q160 220 150 275Z"/><path d="M210 315 Q170 250 195 242 Q235 270 210 315Z"/>
-          <path d="M290 330 Q250 270 276 260 Q310 290 290 330Z"/><path d="M410 330 Q450 270 424 260 Q390 290 410 330Z"/>
-          <path d="M490 315 Q530 250 505 242 Q465 270 490 315Z"/><path d="M550 275 Q610 225 588 205 Q540 220 550 275Z"/>
+        <g fill="url(#leafColor)" stroke="#355c3b" stroke-width="1.2">
+          <path d="M142 285 C95 245 95 218 105 205 C145 218 164 246 142 285Z"/><path d="M228 305 C185 270 185 245 198 232 C235 247 249 275 228 305Z"/><path d="M300 320 C265 280 270 256 286 246 C319 269 324 295 300 320Z"/><path d="M395 318 C430 278 425 252 410 242 C379 265 372 293 395 318Z"/><path d="M475 300 C520 263 520 238 507 225 C468 244 453 272 475 300Z"/><path d="M550 285 C590 248 590 222 575 210 C540 232 528 260 550 285Z"/>
         </g>
-        <g transform="translate(350 365)">
-          <path d="M-105 0 Q-90 75 -55 95 Q0 115 55 95 Q90 75 105 0Z" fill="url(#vaseColor)" stroke="#e6c2c3" stroke-width="3"/>
-          <ellipse cy="0" rx="105" ry="19" fill="#f8e5df" stroke="#d5aeb2" stroke-width="3"/>
-          <ellipse cy="-2" rx="88" ry="12" fill="#6c2737" opacity=".75"/>
-          <path d="M-65 32 Q0 55 65 32" fill="none" stroke="#fff4ed" stroke-width="3" opacity=".65"/>
-        </g>
+        <g fill="none" stroke="#c1d39a" stroke-width="1.2" opacity=".8"><path d="M142 285 Q126 248 105 205 M228 305 Q215 267 198 232 M300 320 Q294 277 286 246 M395 318 Q402 275 410 242 M475 300 Q490 260 507 225 M550 285 Q560 245 575 210"/></g>
+        <path d="M248 365 L452 365 L428 485 Q350 500 272 485Z" fill="url(#vaseColor)" stroke="#e5c4c6" stroke-width="2.5"/><ellipse cx="350" cy="366" rx="103" ry="15" fill="#fff4ef" stroke="#e5c4c6" stroke-width="3"/><ellipse cx="350" cy="369" rx="91" ry="8" fill="#9c6874" opacity=".25"/><path d="M279 398 Q285 442 286 466" stroke="#fff" stroke-width="5" opacity=".5" fill="none" stroke-linecap="round"/><text x="350" y="432" text-anchor="middle" fill="#9d3047" font-size="15" font-style="italic">for my love</text><text x="350" y="451" text-anchor="middle" fill="#b45b6c" font-size="12">♡</text>
       </svg>
 
-      <button class="flower-hit" style="left:11.5%;top:41%" onclick="showFlower(0)" aria-label="red roses">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 52C15 63 9 34 26 19C38 8 47 22 50 29C62 8 85 14 83 34C82 51 66 58 50 52Z" fill="#a7193d"/>
-          <path d="M50 53C22 76 9 51 22 36C34 23 44 35 51 41C44 19 65 14 77 30C89 48 67 61 50 53Z" fill="#c5284d"/>
-          <path d="M50 53C74 25 94 45 80 65C69 80 57 68 49 62C61 85 41 91 28 75C16 59 36 46 50 53Z" fill="#e34b68"/>
-          <path d="M50 51C36 38 45 27 55 32C69 28 72 43 60 51C73 47 77 60 65 68C53 76 40 63 50 51Z" fill="#f87991" stroke="#9d1737" stroke-width="1.5"/>
-          <path d="M50 50C43 41 52 36 57 41C64 44 58 52 54 54C65 49 67 60 58 64C48 68 44 58 50 50Z" fill="#8e1231"/>
-          <path d="M51 49Q58 39 62 47Q65 53 56 56" fill="none" stroke="#ffc5ce" stroke-width="2"/>
+      <!-- MAWAR MERAH -->
+      <button class="flower-hit" style="left:11.43%;top:42%" onclick="showFlower(0)" aria-label="red rose">
+        <svg viewBox="0 0 120 120"><defs><radialGradient id="roseA" cx="35%" cy="25%"><stop stop-color="#ffc2ca"/><stop offset=".42" stop-color="#e94d69"/><stop offset="1" stop-color="#761027"/></radialGradient></defs>
+          <g stroke="#8b1831" stroke-width="1.2"><path d="M60 65C27 73 11 49 25 26 36 8 51 22 60 36 72 12 96 17 99 37 102 57 82 72 60 65Z" fill="url(#roseA)"/><path d="M60 65C35 88 13 72 21 50 27 34 43 38 55 47 48 23 68 12 83 29 99 48 80 66 60 65Z" fill="#bd2949"/><path d="M60 65C80 38 105 47 100 68 96 88 76 88 64 76 71 98 52 108 38 94 23 79 42 62 60 65Z" fill="url(#roseA)"/></g>
+          <path d="M58 64C41 50 49 33 64 38 78 43 74 56 64 62 83 57 88 72 75 81 61 90 49 76 58 64Z" fill="#f57d91" stroke="#a51c3c" stroke-width="1.4"/><path d="M59 63C49 53 57 44 66 48 75 52 68 60 63 63 75 59 77 69 68 74 59 78 54 69 59 63Z" fill="#8e1430" stroke="#681027" stroke-width="1.2"/><path d="M61 60Q68 51 72 58Q74 64 66 66" fill="none" stroke="#ffd1d7" stroke-width="2.3" stroke-linecap="round"/>
+          <g fill="none" stroke="#ffd0d6" opacity=".6"><path d="M34 29Q44 43 52 49"/><path d="M88 29Q79 43 70 49"/><path d="M29 68Q43 61 49 59"/></g>
         </svg>
       </button>
 
-      <button class="flower-hit" style="left:27%;top:25%" onclick="showFlower(1)" aria-label="red tulip">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 80C23 73 22 48 34 22C42 35 47 40 51 44C48 60 49 72 50 80Z" fill="#ed7187" stroke="#a51d3d" stroke-width="1.5"/>
-          <path d="M50 80C76 73 83 48 66 19C62 34 57 40 51 45C59 61 55 72 50 80Z" fill="#c92e50" stroke="#86152f" stroke-width="1.5"/>
-          <path d="M49 78C38 52 43 22 54 12C68 31 65 57 50 78Z" fill="#f58ca0" stroke="#a31b3a" stroke-width="1.5"/>
-          <path d="M52 68Q47 36 54 18" fill="none" stroke="#ffc0ca" stroke-width="2" opacity=".7"/>
+      <!-- TULIP MERAH -->
+      <button class="flower-hit" style="left:27.14%;top:26%" onclick="showFlower(1)" aria-label="red tulip">
+        <svg viewBox="0 0 120 120"><defs><linearGradient id="tulipA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc0c7"/><stop offset=".4" stop-color="#e83e5b"/><stop offset="1" stop-color="#83102b"/></linearGradient></defs>
+          <path d="M28 87C12 63 22 34 39 17 47 30 54 38 59 44 65 24 76 16 81 15 101 40 103 69 83 89Z" fill="#9b1837" stroke="#681127" stroke-width="1.6"/><path d="M59 90C29 84 18 57 31 29 42 41 50 46 57 49 50 65 53 80 59 90Z" fill="url(#tulipA)" stroke="#971936" stroke-width="1.4"/><path d="M60 90C91 85 102 57 84 26 77 40 68 47 62 50 72 67 67 81 60 90Z" fill="url(#tulipA)" stroke="#8d1733" stroke-width="1.4"/><path d="M43 86C37 55 44 23 60 12 77 27 82 58 73 87 64 97 51 97 43 86Z" fill="#e84c65" stroke="#a51b39" stroke-width="1.5"/><path d="M59 84Q51 48 60 18Q70 52 59 84Z" fill="#ffc1c8" opacity=".55"/><path d="M43 48Q49 58 52 76M76 43Q69 58 67 76" fill="none" stroke="#ffd0d5" stroke-width="1.5" opacity=".7"/>
         </svg>
       </button>
 
-      <button class="flower-hit" style="left:42%;top:17%" onclick="showFlower(2)" aria-label="red carnation">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 53C34 65 18 50 26 39C12 26 31 15 40 27C44 9 64 13 63 29C81 17 91 39 75 47C86 62 65 77 55 62C47 76 28 70 34 57Z" fill="#d83d66" stroke="#9c1d42" stroke-width="1.5"/>
-          <path d="M50 53C30 45 37 25 49 32C57 17 75 29 66 42C83 45 73 66 59 58C52 75 34 62 50 53Z" fill="#f0809a" stroke="#b72a4c" stroke-width="1.5"/>
-          <path d="M49 52C42 40 51 31 57 39C69 35 72 48 61 53C71 63 54 70 49 58C40 68 32 55 49 52Z" fill="#f7a4b4" stroke="#bb385a" stroke-width="1.3"/>
-          <path d="M49 50Q44 39 53 38Q63 36 62 46Q68 51 57 57" fill="none" stroke="#ffe0e5" stroke-width="2"/>
+      <!-- ANYELIR -->
+      <button class="flower-hit" style="left:42.14%;top:17%" onclick="showFlower(2)" aria-label="red carnation">
+        <svg viewBox="0 0 120 120"><defs><radialGradient id="carnationA" cx="45%" cy="35%"><stop stop-color="#ffd0d5"/><stop offset=".55" stop-color="#ed6484"/><stop offset="1" stop-color="#a51b43"/></radialGradient></defs>
+          <path d="M60 62C48 49 37 54 34 40 22 41 23 28 34 23 29 10 44 9 50 20 58 7 69 11 70 21 83 10 95 22 87 32 101 40 92 53 81 52 85 66 72 72 60 62Z" fill="url(#carnationA)" stroke="#a72a49" stroke-width="1.5"/><path d="M60 63C46 51 34 67 27 56 16 63 10 49 22 42 12 30 25 22 36 32 40 18 53 21 56 35 67 17 82 25 76 39 94 31 102 47 86 54 97 68 80 77 70 66Z" fill="#d9436b" stroke="#9e2042" stroke-width="1.5"/><path d="M59 62C44 50 44 39 53 34 59 27 66 33 66 40 77 29 86 41 77 50 88 59 76 70 68 63 60 76 47 70 59 62Z" fill="#f58ba0" stroke="#b32b4d" stroke-width="1.3"/><path d="M57 57Q49 45 55 41Q62 37 65 47Q73 43 73 51" fill="none" stroke="#ffe0e3" stroke-width="2" stroke-linecap="round"/><g fill="none" stroke="#ffd0d8" opacity=".65"><path d="M35 30Q44 40 48 48"/><path d="M82 31Q73 41 70 47"/><path d="M28 53Q42 53 48 57"/></g>
         </svg>
       </button>
 
-      <button class="flower-hit" style="left:58%;top:17%" onclick="showFlower(3)" aria-label="pink rose">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 52C15 63 9 34 26 19C38 8 47 22 50 29C62 8 85 14 83 34C82 51 66 58 50 52Z" fill="#d64e70"/>
-          <path d="M50 53C22 76 9 51 22 36C34 23 44 35 51 41C44 19 65 14 77 30C89 48 67 61 50 53Z" fill="#ef7893"/>
-          <path d="M50 51C36 38 45 27 55 32C69 28 72 43 60 51C73 47 77 60 65 68C53 76 40 63 50 51Z" fill="#ffb2c0"/>
-          <path d="M50 50C43 41 52 36 57 41C64 44 58 52 54 54C65 49 67 60 58 64C48 68 44 58 50 50Z" fill="#b52d50"/>
+      <!-- MAWAR PINK -->
+      <button class="flower-hit" style="left:57.86%;top:19%" onclick="showFlower(3)" aria-label="pink rose">
+        <svg viewBox="0 0 120 120"><defs><radialGradient id="roseB" cx="35%" cy="25%"><stop stop-color="#fff2ed"/><stop offset=".45" stop-color="#f3a1b1"/><stop offset="1" stop-color="#ad3c5b"/></radialGradient></defs>
+          <g stroke="#b64b67" stroke-width="1.2"><path d="M60 65C28 71 15 49 28 28 39 12 52 22 60 35 72 14 94 18 97 37 101 57 82 69 60 65Z" fill="url(#roseB)"/><path d="M60 65C37 86 17 71 23 51 27 35 43 37 54 46 49 26 67 15 81 29 97 44 81 64 60 65Z" fill="#dc7c94"/><path d="M60 65C79 39 102 45 99 65 97 83 77 85 65 75 71 95 54 106 40 94 24 81 42 64 60 65Z" fill="url(#roseB)"/></g>
+          <path d="M59 64C43 50 49 35 63 38 77 41 75 54 65 61 82 57 87 70 76 79 63 88 51 76 59 64Z" fill="#f7bdc8" stroke="#bd5570" stroke-width="1.3"/><path d="M60 63C50 53 57 44 65 48 73 51 69 59 63 63 74 59 76 68 68 73 61 77 55 69 60 63Z" fill="#c65a77" stroke="#a23b59" stroke-width="1.1"/><path d="M61 60Q67 52 71 58Q74 64 66 66" fill="none" stroke="#fff0ef" stroke-width="2.3" stroke-linecap="round"/>
         </svg>
       </button>
 
-      <button class="flower-hit" style="left:73%;top:25%" onclick="showFlower(4)" aria-label="burgundy tulip">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 80C23 73 22 48 34 22C42 35 47 40 51 44C48 60 49 72 50 80Z" fill="#9d1d3b" stroke="#641027" stroke-width="1.5"/>
-          <path d="M50 80C76 73 83 48 66 19C62 34 57 40 51 45C59 61 55 72 50 80Z" fill="#b92b4b" stroke="#641027" stroke-width="1.5"/>
-          <path d="M49 78C38 52 43 22 54 12C68 31 65 57 50 78Z" fill="#e85e7b" stroke="#8b1732" stroke-width="1.5"/>
-          <path d="M52 68Q47 36 54 18" fill="none" stroke="#f7a8b7" stroke-width="2" opacity=".7"/>
+      <!-- TULIP BURGUNDY -->
+      <button class="flower-hit" style="left:72.86%;top:28%" onclick="showFlower(4)" aria-label="burgundy tulip">
+        <svg viewBox="0 0 120 120"><defs><linearGradient id="tulipB" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f18a9c"/><stop offset=".38" stop-color="#a92348"/><stop offset="1" stop-color="#49091e"/></linearGradient></defs>
+          <path d="M28 87C14 63 23 34 40 18 48 31 55 39 59 45 65 25 77 17 79 16 99 41 103 68 83 88Z" fill="#64112b" stroke="#43091d" stroke-width="1.5"/><path d="M59 90C28 84 19 57 32 30 42 41 51 47 57 50 49 66 53 80 59 90Z" fill="url(#tulipB)" stroke="#65112b" stroke-width="1.4"/><path d="M60 90C91 85 102 57 84 27 76 41 68 48 62 51 72 67 67 81 60 90Z" fill="url(#tulipB)" stroke="#570d25" stroke-width="1.4"/><path d="M43 86C38 56 44 25 60 14 77 28 82 59 73 87 64 97 51 97 43 86Z" fill="#a92a4b" stroke="#5d1027" stroke-width="1.5"/><path d="M59 84Q51 48 60 19Q70 52 59 84Z" fill="#f39baa" opacity=".5"/><path d="M43 48Q49 58 52 76M76 43Q69 58 67 76" fill="none" stroke="#f6b5c0" stroke-width="1.5" opacity=".65"/>
         </svg>
       </button>
 
-      <button class="flower-hit" style="left:88.5%;top:41%" onclick="showFlower(5)" aria-label="baby's breath">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g fill="#fff1ed" stroke="#e7c8c9" stroke-width="1.5">
-            <circle cx="50" cy="50" r="13"/><circle cx="27" cy="38" r="10"/><circle cx="72" cy="35" r="11"/>
-            <circle cx="28" cy="67" r="11"/><circle cx="70" cy="68" r="12"/><circle cx="50" cy="22" r="9"/>
-          </g>
-          <g fill="#d9a45f"><circle cx="50" cy="50" r="3"/><circle cx="27" cy="38" r="2.5"/><circle cx="72" cy="35" r="2.5"/><circle cx="28" cy="67" r="2.5"/><circle cx="70" cy="68" r="2.5"/><circle cx="50" cy="22" r="2.5"/></g>
+      <!-- BABY'S BREATH -->
+      <button class="flower-hit" style="left:88.57%;top:43%" onclick="showFlower(5)" aria-label="baby's breath">
+        <svg viewBox="0 0 120 120"><g fill="none" stroke="#9bb17c" stroke-width="1.8" stroke-linecap="round"><path d="M60 112Q53 80 60 57Q48 37 30 25"/><path d="M60 72Q77 48 91 33"/><path d="M57 88Q35 66 17 65"/><path d="M62 91Q84 78 103 72"/><path d="M60 58Q63 35 65 14"/></g>
+          <defs><g id="tinyBloom" fill="#fffaf6" stroke="#e1d2d6" stroke-width=".9"><ellipse cy="-6" rx="3.8" ry="6.5"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(72)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(144)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(216)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(288)"/><circle r="2.8" fill="#e8c987" stroke="none"/></g></defs>
+          <use href="#tinyBloom" x="30" y="25"/><use href="#tinyBloom" x="91" y="33"/><use href="#tinyBloom" x="17" y="65"/><use href="#tinyBloom" x="103" y="72"/><use href="#tinyBloom" x="65" y="14"/><use href="#tinyBloom" x="45" y="43"/><use href="#tinyBloom" x="78" y="57"/><use href="#tinyBloom" x="39" y="82"/>
         </svg>
       </button>
     </div>
 
-    <div class="progress" id="progress">0 dari 6 bunga sudah kamu buka ♡</div>
-    <div class="flower-message" id="flowerMessage">
+    <div class="flower-message" id="flowerMessage" aria-live="polite">
       <strong>little flowers, lots of love ♡</strong>
-      <p>pencet salah satu bunga di atas yaa.</p>
+      <p>setiap bunga punya pesan kecil. pilih satu, bbe.</p>
     </div>
+
+    <div class="progress" id="progress">
+      0 dari 6 bunga sudah kamu buka ♡
+    </div>
+
     <div class="bouquet-buttons">
-      <button class="btn light" onclick="showAllFlowers()">open them all ♡</button>
+      <button class="btn light" onclick="showAllFlowers()">buka semua pesannya ♡</button>
     </div>
   </div>
 </div>
@@ -168,39 +164,45 @@
 <section class="letter-section" id="letter">
 <div class="wrap reveal">
   <div class="section-head">
-    <div class="kicker">A LITTLE LETTER</div>
-    <h2>for you, always ♡</h2>
+    <div class="kicker">A NOTE FROM ME</div>
+    <h2>buat kamu, bb</h2>
+    <p class="desc">aku mau bilang sesuatu, jadi baca dulu yaa.</p>
   </div>
+
   <article class="panel letter">
-    <p>haii, happy birthday yaa sayanggg. akhirnya hari yang kamu tunggu-tunggu dateng juga hehe.</p>
-    <p>aku sebenernya ngga terlalu jago bikin kata-kata, apalagi buat orang yang sepenting kamu. tapi aku pengen kamu tau kalau aku bersyukur banget bisa kenal kamu.</p>
-    <p>makasih ya udah hadir di hidup aku. makasih udah jadi kamu, dengan semua cerita, tingkah random, dan hal-hal kecil yang mungkin kamu sendiri ngga sadar kalau itu berarti buat aku.</p>
-    <p>aku harap di umur kamu yang baru ini, banyak hal baik yang dateng. semoga kamu selalu dikasih kesehatan, ketenangan, dan alasan buat senyum setiap harinya. semoga semua hal yang lagi kamu usahain pelan-pelan nemuin jalannya.</p>
-    <p>kalau suatu hari kamu lagi ngerasa hari kamu jelek banget, semoga kamu inget kalau ada orang yang seneng banget tiap kamu muncul di notifnya. orang itu aku, obviously. muehehehe.</p>
-    <p>jangan lupa bahagia yaa. and don't forget to save a little smile for yourself. i love you, sayanggg. ♡</p>
-    <p class="signature">yours, with a silly amount of love ♡</p>
+    <p>happy birthday, sayanggg ♡</p>
+    <p>semoga di umur kamu yang sekarang, banyak hal baik dateng ke kamu yaa. semoga lebih bahagia, ngga seringg cape, dan ketemu banyak hal yang bikin kamu seneng.</p>
+    <p>makasih udah jadi diri kamu yaa sayanggg. aku suka banyak hal kecil tentang kamu, bahkan hal hal yang mungkin kamu sendiri ngga sadar. dan jujur, aku seneng banget bisa kenal sama kamu.</p>
+    <p>kalau lagi cape, istirahat yaa. jangan maksain diri terus. kamu ngga harus selalu punya energi buat semuanya. aku for you koo, termasuk cerita random yang menurut kamu gapenting. tapi menurut aku penting bb hehehe.</p>
+    <p>aku belum bisa ngasih kamu kado yang bisa kamu pegang langsung atau ngerayain bareng kamu. jadi aku bikin ini dulu. sederhana sih, tapi tiap bagiannya aku siapin sambil mikirin kamu.</p>
+    <p>pokoknya jaga diri baik baik yaa, sayangg. semoga tahun ini baik sama kamu. i hope you get all the little things that make you happy. ♡</p>
+    <p class="signature">dari anak kecil yang selalu<br>sayang kepadamu bb ♡</p>
   </article>
 </div>
 </section>
 
 <section class="cake-section" id="cake">
-<div class="wrap reveal">
+<div class="wrap reveal cake-area">
   <div class="section-head">
-    <div class="kicker">MAKE A WISH</div>
-    <h2>one little birthday cake ♡</h2>
-    <p class="desc">sebelum lanjut, make a wish dulu yaa.</p>
+    <div class="kicker">ONE BIRTHDAY WISH</div>
+    <h2>make a wish, bbe!</h2>
+    <p class="desc">sebelum lanjut, kamu harus tiup lilinnya dulu. pencet tombolnya hehehe.</p>
   </div>
-  <div class="cake-area">
+
+  <div class="panel">
     <div class="cake" id="cakeArt">
-      <div class="plate"></div>
-      <div class="cake-body"></div>
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
       <div class="cake-top"></div>
-      <div class="candle"><span class="flame"></span></div>
-      <div class="candle"><span class="flame"></span></div>
-      <div class="candle"><span class="flame"></span></div>
+      <div class="cake-body"></div>
+      <div class="plate"></div>
     </div>
-    <p class="cake-text" id="cakeText">tutup mata sebentar, pikirin wish kamu, terus pencet tombolnya yaa ♡</p>
-    <button class="btn" id="blowButton" onclick="blowCandles()">blow the candles ♡</button>
+
+    <p class="cake-text" id="cakeText">
+      tutup mata bentar bb, terus make a wish yhehe, terus tiup lilinnya yaa ♡
+    </p>
+    <button class="btn" id="blowButton" onclick="blowCandles()">tiup lilinnya! ♡</button>
   </div>
 </div>
 </section>
@@ -208,21 +210,29 @@
 <section id="secret">
 <div class="wrap reveal secret">
   <div class="section-head">
-    <div class="kicker">A TINY SECRET</div>
-    <h2>psst... one more thing ♡</h2>
-    <p class="desc">ada sesuatu yang belum aku kasih tau ke kamu.</p>
+    <div class="kicker">PSST, THIS FOR YOU</div>
+    <h2>one tiny secret ♡</h2>
+    <p class="desc">masih ada satu hal lagi. coba buka amplopnya deh hehe.</p>
   </div>
-  <button class="envelope" id="envelope" onclick="openEnvelope()">
+
+  <button class="envelope" id="envelope" onclick="openEnvelope()" aria-label="Buka amplop">
     <span class="env-back"></span>
-    <span class="paper">for you, bb ♡</span>
+    <span class="paper">one little thing<br>i want you to know ♡</span>
     <span class="env-flap"></span>
     <span class="env-front"></span>
-    <span class="seal">♡</span>
+    <span class="seal">♥</span>
   </button>
-  <div class="panel hidden-note" id="secretNote">
-    <p>one last thing, sayang. jangan pernah ngerasa kamu harus jadi orang lain supaya pantas disayang. kamu yang sekarang aja udah berharga banget. i hope you know that. ♡</p>
-  </div>
-  <button class="btn light" id="openSecret" onclick="openEnvelope()">open your secret ♡</button>
+
+  <button class="btn light" id="openSecret" onclick="openEnvelope()">open the letter</button>
+
+  <article class="panel hidden-note" id="secretNote">
+    <p><strong>hey, you. ♡</strong></p>
+    <p>hehe ketemu ini juga yaa. sebenernya aku bingung mau naro apa di sini, tapi rasanya sayang aja kalau aku bikin sesuatu buat kamu terus cuma isinya ucapan happy birthday doang.</p>
+    <p>aku sayang banget sama kamu, bbe. mungkin aku belum bisa ngasih kamu banyak hal sekarang, tapi aku pengen kamu tau kalau aku beneran seneng bisa kenal kamu. kamu punya tempat sendiri di hati aku, and that's that.</p>
+    <p>kalau suatu hari kamu lagi ngerasa hari kamu jelek banget, semoga kamu inget kalau ada orang yang seneng banget tiap kamu muncul di notifnya. orang itu aku, obviously. muehehehe.</p>
+    <p>jangan lupa bahagia yaa. and don't forget to save a little smile for yourself. i love you, sayanggg. ♡</p>
+    <p class="signature">yours, with a silly amount of love ♡</p>
+  </article>
 </div>
 </section>
 
@@ -268,12 +278,12 @@ const flowers=[
  {
   name:"red rosess",
   meaning:"because you're my favorite",
-  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
+  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banget. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
  },
  {
   name:"red tulip",
   meaning:"you're my happiness",
-  message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
+  message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
  },
  {
   name:"red carnation",
@@ -327,7 +337,7 @@ function blowCandles(){
  if(cake.classList.contains("out"))return;
  cake.classList.add("out");
  document.getElementById("cakeText").textContent=
- "YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
+ "YAYYY! semoga wish kamu satu satu jadi nyata yaa. happy birthday, sayanggg ♡";
  document.getElementById("blowButton").textContent="wish sent! ♡";
  document.getElementById("blowButton").disabled=true;
  rainHearts();
@@ -343,37 +353,41 @@ function rainHearts(){
  const layer=document.getElementById("confetti");
 
  const flowers=[
-  // ROSE
+  // MAWAR MERAH
   `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 52C15 63 9 34 26 19C38 8 47 22 50 29C62 8 85 14 83 34C82 51 66 58 50 52Z" fill="#a7193d"/>
-    <path d="M50 53C22 76 9 51 22 36C34 23 44 35 51 41C44 19 65 14 77 30C89 48 67 61 50 53Z" fill="#c5284d"/>
-    <path d="M50 53C74 25 94 45 80 65C69 80 57 68 49 62C61 85 41 91 28 75C16 59 36 46 50 53Z" fill="#e34b68"/>
-    <path d="M50 51C36 38 45 27 55 32C69 28 72 43 60 51C73 47 77 60 65 68C53 76 40 63 50 51Z" fill="#f87991" stroke="#9d1737" stroke-width="1.5"/>
-    <path d="M50 50C43 41 52 36 57 41C64 44 58 52 54 54C65 49 67 60 58 64C48 68 44 58 50 50Z" fill="#8e1231"/>
-    <path d="M51 49Q58 39 62 47Q65 53 56 56" fill="none" stroke="#ffc5ce" stroke-width="2"/>
+    <defs><radialGradient id="rainRose" cx="35%" cy="25%"><stop stop-color="#ffc2ca"/><stop offset=".45" stop-color="#e94d69"/><stop offset="1" stop-color="#761027"/></radialGradient></defs>
+    <g fill="url(#rainRose)" stroke="#8b1831" stroke-width="1.2">
+      <path d="M50 54C19 67 9 42 25 22C37 8 47 21 51 31C64 9 88 17 84 39C81 57 66 62 50 54Z"/>
+      <path d="M50 54C22 76 10 53 23 35C35 20 46 34 53 42C47 18 68 13 81 30C94 49 68 63 50 54Z"/>
+      <path d="M50 54C73 27 94 44 81 66C70 83 56 70 49 63C61 86 40 91 27 75C15 58 35 45 50 54Z"/>
+    </g>
+    <path d="M49 53C37 39 47 29 57 34C70 29 76 44 63 53C76 50 78 63 65 70C52 77 40 65 49 53Z" fill="#f57d91" stroke="#a51c3c" stroke-width="1.4"/>
+    <path d="M50 52C43 43 52 37 58 42C66 46 58 54 54 56C66 51 68 62 58 66C48 69 44 60 50 52Z" fill="#8e1430"/>
   </svg>`,
 
   // TULIP
   `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 80C23 73 22 48 34 22C42 35 47 40 51 44C48 60 49 72 50 80Z" fill="#ed7187" stroke="#a51d3d" stroke-width="1.5"/>
-    <path d="M50 80C76 73 83 48 66 19C62 34 57 40 51 45C59 61 55 72 50 80Z" fill="#c92e50" stroke="#86152f" stroke-width="1.5"/>
-    <path d="M49 78C38 52 43 22 54 12C68 31 65 57 50 78Z" fill="#f58ca0" stroke="#a31b3a" stroke-width="1.5"/>
-    <path d="M52 68Q47 36 54 18" fill="none" stroke="#ffc0ca" stroke-width="2" opacity=".7"/>
+    <defs><linearGradient id="rainTulip" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc0c7"/><stop offset=".45" stop-color="#e83e5b"/><stop offset="1" stop-color="#83102b"/></linearGradient></defs>
+    <path d="M50 88C20 77 14 51 31 22C40 34 47 41 51 47C57 26 69 15 74 15C94 44 84 76 50 88Z" fill="#9b1837" stroke="#681127" stroke-width="1.5"/>
+    <path d="M50 86C24 76 23 49 36 23C44 36 49 43 53 48C49 64 49 77 50 86Z" fill="url(#rainTulip)" stroke="#971936" stroke-width="1.3"/>
+    <path d="M50 86C77 76 82 48 67 20C62 35 57 43 52 49C61 66 57 78 50 86Z" fill="#d83255" stroke="#8d1733" stroke-width="1.3"/>
+    <path d="M49 84C39 54 44 22 54 12C69 31 66 61 51 84Z" fill="#f58ca0" stroke="#a31b3a" stroke-width="1.3"/>
+    <path d="M52 75Q47 39 54 19" fill="none" stroke="#ffd0d5" stroke-width="2" opacity=".8"/>
   </svg>`,
 
   // DAISY
   `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(50 50)" fill="#fff8ef" stroke="#e7d2c9" stroke-width="1">
-      <ellipse cy="-25" rx="11" ry="23"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(45)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(90)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(135)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(180)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(225)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(270)"/>
-      <ellipse cy="-25" rx="11" ry="23" transform="rotate(315)"/>
+      <ellipse cy="-25" rx="10.5" ry="22"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(45)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(90)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(135)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(180)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(225)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(270)"/>
+      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(315)"/>
       <circle r="12" fill="#e7b84d" stroke="#c48b35" stroke-width="2"/>
-      <circle r="6" fill="#f8d77b" stroke="none"/>
+      <circle r="5" fill="#f8d77b" stroke="none"/>
     </g>
   </svg>`,
 
@@ -390,7 +404,7 @@ function rainHearts(){
     <circle cx="50" cy="50" r="3" fill="#ffedb7"/>
   </svg>`,
 
-  // CARNATION
+  // ANYELIR
   `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <path d="M50 53C34 65 18 50 26 39C12 26 31 15 40 27C44 9 64 13 63 29C81 17 91 39 75 47C86 62 65 77 55 62C47 76 28 70 34 57Z" fill="#d83d66" stroke="#9c1d42" stroke-width="1.5"/>
     <path d="M50 53C30 45 37 25 49 32C57 17 75 29 66 42C83 45 73 66 59 58C52 75 34 62 50 53Z" fill="#f0809a" stroke="#b72a4c" stroke-width="1.5"/>
