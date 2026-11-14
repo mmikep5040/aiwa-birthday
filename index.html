@@ -1,56 +1,528 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#490d1c">
-<meta name="description" content="A little birthday gift made with love for Aiwa.">
 <title>For Aiwa ♡</title>
 
 <style>
-:root{--wine:#4b0c1d;--red:#9e2340;--rose:#d65b76;--blush:#f3c2c8;--cream:#fff8f2;--ink:#592b35;--green:#6f8b60;--gold:#d9b879}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink)}button{font:inherit;cursor:pointer}a{color:inherit}.wrap{width:min(920px,91%);margin:auto}
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 20px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#fffdf8 0%,#f7e5e2 55%,#eac6ca 100%)}
-.hero:before,.hero:after{content:'✿';position:absolute;color:#c64b65;opacity:.10;font-size:clamp(180px,35vw,390px);line-height:1}.hero:before{top:-100px;left:-90px;transform:rotate(-25deg)}.hero:after{bottom:-160px;right:-90px;transform:rotate(20deg)}.hero-content{position:relative;z-index:1;animation:rise 1s both}.eyebrow{display:inline-block;padding:9px 16px;border:1px solid #d9aab1;border-radius:30px;color:var(--red);letter-spacing:3px;font-size:10px;text-transform:uppercase}h1{font-weight:normal;font-size:clamp(48px,10vw,100px);line-height:.94;color:var(--wine);margin:28px 0 20px}h1 em{display:block;color:var(--rose)}.hero p{max-width:560px;margin:0 auto 28px;line-height:1.9;color:#80545f}
-.btn{border:0;background:var(--wine);color:white;border-radius:30px;padding:14px 24px;transition:.25s;box-shadow:0 8px 22px #4b0c1d22}.btn:hover{background:var(--red);transform:translateY(-2px)}.btn.light{background:#fff4f1;color:var(--wine);border:1px solid #e8c4c8;box-shadow:none}section{padding:86px 0}.section-head{text-align:center;margin-bottom:34px}.kicker{color:var(--rose);letter-spacing:3px;text-transform:uppercase;font-size:10px}h2{font-weight:normal;font-style:italic;font-size:clamp(32px,6vw,54px);color:var(--wine);margin:12px 0}.desc{max-width:610px;margin:auto;line-height:1.9;color:#98727a}.panel{background:#fffdf9;border:1px solid #ead4d2;border-radius:26px;padding:clamp(20px,4vw,36px);box-shadow:0 18px 55px #4c0c1c12}.reveal{opacity:0;transform:translateY(20px);transition:.75s}.reveal.visible{opacity:1;transform:none}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root{
+  --wine:#490d1c;
+  --red:#8e1d35;
+  --rose:#c9435d;
+  --pink:#f1b5bf;
+  --cream:#fff7f0;
+  --ink:#542832;
+  --green:#78976b;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  background:var(--cream);
+  color:var(--ink);
+}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1000px,91%);margin:auto}
+section{padding:100px 0}
+button:focus-visible{outline:3px solid #e78b9b;outline-offset:4px}
+
+.hero{
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:70px 20px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 30%,#fffaf4,#f6e4e2 70%,#edcdd0);
+}
+.hero:before,.hero:after{
+  content:"";
+  position:absolute;
+  width:350px;height:350px;
+  border-radius:50%;
+  background:#e8b6bc;
+  opacity:.25;
+  filter:blur(35px);
+}
+.hero:before{top:-150px;left:-150px}
+.hero:after{bottom:-180px;right:-150px}
+.hero-content{position:relative;z-index:1}
+.eyebrow,.kicker{
+  color:var(--rose);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font:500 10px 'DM Sans',sans-serif;
+}
+h1{
+  font-weight:400;
+  font-size:clamp(55px,11vw,112px);
+  line-height:.9;
+  color:var(--wine);
+  margin:30px 0;
+}
+h1 em{display:block;color:var(--rose)}
+.hero p,.desc{
+  max-width:590px;
+  margin:0 auto 28px;
+  line-height:1.9;
+  font-size:19px;
+  color:#76515a;
+}
+.btn{
+  border:0;
+  background:var(--wine);
+  color:white;
+  border-radius:40px;
+  padding:15px 27px;
+  font:500 12px 'DM Sans',sans-serif;
+  letter-spacing:.5px;
+  transition:.25s;
+}
+.btn:hover{background:var(--red);transform:translateY(-3px)}
+.btn.light{
+  background:#fff4f1;
+  color:var(--wine);
+  border:1px solid #e8c4c8;
+}
+.section-head{text-align:center;margin-bottom:42px}
+h2{
+  font-weight:400;
+  font-style:italic;
+  font-size:clamp(38px,7vw,62px);
+  color:var(--wine);
+  margin:15px 0;
+}
+.desc{font-size:18px;color:#98727a}
+.panel{
+  background:#fffdf9;
+  border:1px solid #ead4d2;
+  border-radius:28px;
+  padding:clamp(22px,5vw,48px);
+  box-shadow:0 20px 60px #4c0c1c12;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:.8s ease;
+}
+.reveal.visible{opacity:1;transform:none}
 
 /* BOUQUET */
-.bouquet-section{color:white;background:radial-gradient(ellipse at 50% 65%,#84213b 0%,transparent 70%),linear-gradient(145deg,#290610,#641226 55%,#350914)}.bouquet-section h2{color:#fff0ed}.bouquet-section .kicker{color:#f2a8b5}.bouquet-section .desc{color:#edcbd0}.bouquet-panel{background:linear-gradient(145deg,#641327,#400a19);border:1px solid #a8495d;box-shadow:0 24px 65px #16030b77;overflow:hidden}.bouquet-stage{width:100%;max-width:760px;margin:auto;position:relative;aspect-ratio:700/500}.bouquet-art{width:100%;height:100%;display:block}.flower-hit{position:absolute;width:18%;aspect-ratio:1;padding:0;border:0;background:transparent;display:grid;place-items:center;transform:translate(-50%,-50%) scale(.15);opacity:0;transition:transform .75s cubic-bezier(.2,.8,.2,1),opacity .7s;z-index:3;-webkit-tap-highlight-color:transparent}.flower-hit.bloom{transform:translate(-50%,-50%) scale(1);opacity:1}.flower-hit:hover{filter:drop-shadow(0 0 10px #ffb1bf99)}.flower-hit:focus-visible{outline:2px solid #ffd5dc;outline-offset:4px;border-radius:50%}.flower-hit svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 5px 5px #26030d66)}.flower-message{text-align:center;min-height:125px;padding:20px 5px 0}.flower-message strong{display:block;font-size:21px;font-weight:normal;font-style:italic;color:#ffd5dc;margin-bottom:10px}.flower-message p{line-height:1.8;color:#ffedf0;margin:0}.progress{text-align:center;font-size:13px;color:#edcbd0;margin:10px 0 20px}.bouquet-buttons{text-align:center}
+.bouquet-section{
+  color:white;
+  background:
+    radial-gradient(ellipse at 50% 65%,#7d1a32 0%,transparent 70%),
+    linear-gradient(145deg,#300711,#641226 55%,#390a16);
+}
+.bouquet-section h2{color:#fff0ed}
+.bouquet-section .kicker{color:#f2a8b5}
+.bouquet-section .desc{color:#edcbd0}
+.bouquet-panel{
+  background:linear-gradient(145deg,#641327,#470b1b);
+  border:1px solid #a8495d;
+  box-shadow:0 20px 60px #16030b66;
+}
+.bouquet-stage{
+  position:relative;
+  max-width:700px;
+  margin:auto;
+  aspect-ratio:700/500;
+}
+.bouquet-art{width:100%;height:100%;display:block}
+.flower-hit{
+  position:absolute;
+  width:14%;
+  aspect-ratio:1;
+  border:1px solid #ffffff55;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 25%,#ffffff55,#ffffff0b 75%);
+  box-shadow:inset 0 0 15px #ffffff20,0 5px 18px #17020b66;
+  display:grid;
+  place-items:center;
+  padding:2%;
+  transform:translate(-50%,-50%) scale(.2);
+  opacity:0;
+  transition:.7s cubic-bezier(.2,.8,.2,1);
+  backdrop-filter:blur(3px);
+  z-index:3;
+}
+.flower-hit.bloom{
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+}
+.flower-hit:hover{
+  box-shadow:0 0 0 3px #ffc4ce55,0 0 25px #ff91a8;
+}
+.flower-hit svg{width:100%;height:100%}
+.flower-message{
+  text-align:center;
+  min-height:125px;
+  padding:20px 5px 0;
+}
+.flower-message strong{
+  display:block;
+  font-size:23px;
+  font-weight:400;
+  font-style:italic;
+  color:#ffd5dc;
+  margin-bottom:10px;
+}
+.flower-message p{line-height:1.8;color:#ffedf0}
+.progress{
+  text-align:center;
+  font:12px 'DM Sans',sans-serif;
+  color:#edcbd0;
+  margin:15px 0 25px;
+}
+.bouquet-buttons{text-align:center}
 
 /* LETTER */
-.letter-section{background:linear-gradient(180deg,#fff8f1,#f8e9e5)}.letter{max-width:760px;margin:auto;padding:clamp(25px,5vw,48px)}.letter p{line-height:2;margin:0 0 17px}.signature{text-align:right;color:var(--red);font-style:italic;margin-top:28px}
+.letter-section{
+  background:
+    radial-gradient(ellipse at 50% 50%,#fffdf9,#fff2eb);
+}
+.letter{
+  max-width:780px;
+  margin:auto;
+  padding:clamp(25px,6vw,65px);
+  background:
+    linear-gradient(90deg,#ead4d0 1px,transparent 1px) 35px 0/1px 100%,
+    #fffdf9;
+  box-shadow:0 20px 60px #4c0c1c10;
+}
+.letter p{
+  font-size:19px;
+  line-height:2;
+  margin:0 0 18px;
+}
+.signature{
+  text-align:right;
+  color:var(--red);
+  font-style:italic;
+  margin-top:30px;
+}
 
 /* CAKE */
-.cake-section{background:linear-gradient(160deg,#f6e1e2,#fff8f1)}.cake-area{text-align:center}.cake{position:relative;width:260px;height:220px;margin:25px auto 10px}.plate{position:absolute;bottom:8px;width:260px;height:23px;background:#ead0c8;border-radius:50%;border-bottom:4px solid #c49c98}.cake-body{position:absolute;top:105px;left:24px;width:212px;height:88px;background:linear-gradient(90deg,#a91e36,#dc6371,#a91e36);border-radius:0 0 22px 22px;border-bottom:7px solid #79172b}.cake-top{position:absolute;top:80px;left:20px;width:220px;height:55px;border-radius:50%;background:#f6c6c6;border:3px solid #b64a59;z-index:2}.candle{position:absolute;z-index:4;top:36px;width:13px;height:53px;background:repeating-linear-gradient(45deg,#fff8ee 0 6px,#d94b60 6px 11px);border-radius:5px}.candle:nth-child(1){left:88px}
-.candle:nth-child(2){left:124px;top:22px;height:67px}
-.candle:nth-child(3){left:160px}
-/* Pastikan tiga lilin terlihat dan susunan kuenya konsisten */
-.cake>.candle:nth-of-type(1){left:88px;top:36px;z-index:4}
-.cake>.candle:nth-of-type(2){left:124px;top:22px;height:67px;z-index:4}
-.cake>.candle:nth-of-type(3){left:160px;top:36px;z-index:4}
-.cake>.cake-body{z-index:1}
-.cake>.cake-top{z-index:2}
-.cake>.plate{z-index:0}.flame{position:absolute;width:11px;height:17px;top:-20px;left:1px;background:#ffbd48;border-radius:50% 50% 50% 0;transform:rotate(45deg);filter:drop-shadow(0 0 8px #ffb347);animation:flicker .7s infinite alternate}@keyframes flicker{to{transform:rotate(40deg) scale(.8);opacity:.8}}.cake.out .flame{display:none}.cake-text{line-height:1.8;color:#98727a;max-width:520px;margin:15px auto 22px}
-
-/* SECRET ENVELOPE */
-#secret{background:#fff8f1}.secret{text-align:center;max-width:720px;margin:auto}.envelope{position:relative;width:220px;height:150px;display:block;margin:28px auto;border:0;border-radius:8px;overflow:hidden;background:#d88b96;box-shadow:0 12px 30px #781c2c20}.env-back{position:absolute;inset:0;background:#e8b8ba}.paper{position:absolute;top:7%;left:14%;width:72%;height:82%;background:#fffdf8;display:grid;place-content:center;color:#77424b;line-height:1.6;transition:.6s}.env-flap{position:absolute;inset:0;background:#bd5364;clip-path:polygon(0 0,100% 0,50% 60%);transform-origin:top;transition:.6s;z-index:3}.env-front{position:absolute;inset:0;background:#d98794;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:2}.seal{position:absolute;z-index:4;left:calc(50% - 12px);top:53%;color:white;font-size:24px}.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}.envelope.open .paper{transform:translateY(-20px)}.hidden-note{display:none;text-align:left;margin-top:25px}.hidden-note.show{display:block;animation:appear .6s}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.hidden-note p{line-height:1.9}
-
-/* MUSIC + END */
-#music{background:linear-gradient(180deg,#f8e9e5,#fff8f1)}.music{text-align:center}.music .disc{font-size:45px;animation:spin 9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.music p{line-height:1.8}.final{background:linear-gradient(#f5e0e1,#fff8f1);text-align:center}footer{text-align:center;padding:30px 15px 45px;color:#98727a}
-
-/* HUJAN BUNGA: PURE BUNGA TANPA DAUN ATAU BATANG */
-#confetti{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
-.conf{position:absolute;top:-65px;width:var(--size);height:var(--size);opacity:0;pointer-events:none;animation:flowerFall var(--duration) linear forwards}
-.conf svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 3px #3b101522)}
-@keyframes flowerFall{
-  0%{transform:translate3d(0,-5vh,0) rotate(0deg) scale(.8);opacity:0}
-  10%{opacity:1}
-  85%{opacity:1}
-  100%{transform:translate3d(var(--drift),110vh,0) rotate(var(--spin)) scale(1);opacity:0}
+.cake-section{
+  background:
+    radial-gradient(ellipse at 50% 50%,#fffdfb,#f4dddd);
 }
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media(max-width:520px){section{padding:65px 0}.flower-hit{width:19%}.bouquet-stage{width:108%;margin-left:-4%}.panel{border-radius:20px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+.cake-panel{
+  overflow:hidden;
+  padding:45px 15px 40px;
+}
+.cake{
+  position:relative;
+  width:min(420px,94vw);
+  height:330px;
+  margin:5px auto 15px;
+  transform:scale(1);
+}
+
+/* CAKE PLATE */
+.plate{
+  position:absolute;
+  bottom:15px;
+  left:2%;
+  width:96%;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#fffaf5,#e8c8c2 65%,#c99b98);
+  border:2px solid #d7aaa5;
+  box-shadow:0 9px 18px #71303b22;
+}
+.plate:after{
+  content:"";
+  position:absolute;
+  inset:5px 15px 9px;
+  border-radius:50%;
+  border-top:2px solid #fff;
+}
+
+/* CAKE BODY */
+.cake-body{
+  position:absolute;
+  left:11%;
+  bottom:42px;
+  width:78%;
+  height:142px;
+  border-radius:15px 15px 30px 30px;
+  background:
+    linear-gradient(
+      to bottom,
+      #f7d6d2 0 8%,
+      #8b1b32 8% 30%,
+      #f8d6d0 30% 37%,
+      #a6263e 37% 65%,
+      #f7d2cd 65% 72%,
+      #8b1b32 72% 100%
+    );
+  box-shadow:
+    inset 9px 0 15px #ffffff35,
+    inset -12px 0 17px #47071855,
+    0 12px 18px #570b1b35;
+  overflow:hidden;
+}
+.cake-body:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle,#4b0c1d55 1px,transparent 2px);
+  background-size:12px 11px;
+  opacity:.55;
+}
+.cake-body:after{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:12px;
+  background:linear-gradient(#ffb8c2,#e9788b);
+  opacity:.9;
+}
+
+/* TOP FROSTING */
+.cake-top{
+  position:absolute;
+  z-index:3;
+  top:116px;
+  left:9%;
+  width:82%;
+  height:100px;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 35% 28%,#fff8f1,#f6c8cb 60%,#df8f9b);
+  border:3px solid #d58b94;
+  box-shadow:
+    inset 0 8px 14px #ffffffaa,
+    0 5px 8px #6b152522;
+}
+.cake-top:after{
+  content:"";
+  position:absolute;
+  left:4px;right:4px;
+  bottom:-30px;
+  height:45px;
+  background:linear-gradient(90deg,#f4bfc5,#fff0e9,#f4bfc5);
+  clip-path:polygon(
+    0 0,100% 0,100% 35%,91% 50%,
+    85% 100%,77% 48%,65% 58%,59% 100%,
+    48% 48%,37% 60%,31% 100%,22% 48%,
+    13% 55%,8% 100%,5% 45%,0 35%
+  );
+  filter:drop-shadow(0 3px 2px #a94b5b55);
+}
+
+/* CANDLES */
+.candle{
+  position:absolute;
+  z-index:7;
+  top:45px;
+  width:16px;
+  height:78px;
+  border-radius:5px;
+  background:repeating-linear-gradient(
+    45deg,#fff8ee 0 7px,#d94b60 7px 13px
+  );
+  box-shadow:inset -3px 0 4px #8b183133,2px 3px 5px #5d102522;
+}
+.candle:nth-child(1){left:34%;top:56px}
+.candle:nth-child(2){left:48%;top:37px;height:86px}
+.candle:nth-child(3){left:62%;top:56px}
+.flame{
+  position:absolute;
+  width:17px;height:24px;
+  top:-27px;left:0;
+  background:radial-gradient(
+    ellipse at 45% 65%,
+    #fff8bd 0%,#ffdb63 35%,#ff9c32 75%,#f15a24
+  );
+  border-radius:50% 50% 50% 0;
+  transform:rotate(45deg);
+  filter:drop-shadow(0 0 9px #ffb347);
+  animation:flicker .7s infinite alternate;
+}
+@keyframes flicker{
+  to{transform:rotate(40deg) scale(.82);opacity:.85}
+}
+.cake.out .flame{display:none}
+
+/* STRAWBERRIES */
+.strawberry{
+  position:absolute;
+  z-index:6;
+  width:65px;
+  height:70px;
+  filter:drop-shadow(0 5px 4px #64132855);
+}
+.strawberry.one{top:100px;left:14%;transform:rotate(-18deg)}
+.strawberry.two{top:93px;right:14%;transform:rotate(18deg)}
+.strawberry.three{top:135px;left:44%;width:48px;height:53px;transform:rotate(7deg)}
+.strawberry svg{width:100%;height:100%}
+
+/* WHIPPED CREAM */
+.cream{
+  position:absolute;
+  z-index:8;
+  width:42px;height:34px;
+  background:radial-gradient(circle at 35% 25%,#fff,#f8e5dc 75%);
+  border-radius:55% 50% 45% 45%;
+  box-shadow:inset -4px -4px 7px #d9b9b1;
+}
+.cream:after{
+  content:"";
+  position:absolute;
+  width:20px;height:17px;
+  top:-8px;left:10px;
+  background:#fff8f2;
+  border-radius:50%;
+}
+.cream.one{top:110px;left:29%}
+.cream.two{top:107px;right:29%}
+.cream.three{top:160px;left:10%;width:30px;height:25px}
+.cream.four{top:160px;right:10%;width:30px;height:25px}
+
+/* BERRIES AND DECOR */
+.berry{
+  position:absolute;
+  z-index:8;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,#fff0d9,#b62b46 65%);
+  box-shadow:0 2px 4px #70112655;
+}
+.berry.a{top:172px;left:27%}
+.berry.b{top:180px;right:28%}
+.berry.c{top:190px;left:50%}
+.cake-text{
+  line-height:1.8;
+  color:#98727a;
+  max-width:520px;
+  margin:15px auto 22px;
+  font-size:18px;
+}
+
+/* ENVELOPE */
+.secret{text-align:center;max-width:780px;margin:auto}
+.envelope{
+  position:relative;
+  width:240px;height:165px;
+  display:block;
+  margin:35px auto;
+  border:0;
+  border-radius:8px;
+  overflow:hidden;
+  background:#d88b96;
+  box-shadow:0 12px 30px #781c2c20;
+}
+.env-back{position:absolute;inset:0;background:#e8b8ba}
+.paper{
+  position:absolute;
+  top:7%;left:14%;
+  width:72%;height:82%;
+  background:#fffdf8;
+  display:grid;
+  place-content:center;
+  color:#77424b;
+  line-height:1.6;
+  transition:.6s;
+}
+.env-flap{
+  position:absolute;inset:0;
+  background:#bd5364;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  transform-origin:top;
+  transition:.6s;
+  z-index:3;
+}
+.env-front{
+  position:absolute;inset:0;
+  background:#d98794;
+  clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);
+  z-index:2;
+}
+.seal{
+  position:absolute;z-index:4;
+  left:calc(50% - 12px);top:53%;
+  color:white;font-size:24px;
+}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
+.envelope.open .paper{transform:translateY(-20px)}
+.hidden-note{
+  display:none;
+  text-align:left;
+  margin-top:25px;
+}
+.hidden-note.show{display:block;animation:appear .6s}
+@keyframes appear{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
+.hidden-note p{line-height:1.9;font-size:18px}
+
+/* MUSIC */
+.music{text-align:center}
+.music .disc{
+  width:90px;height:90px;
+  margin:0 auto 20px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  color:#fff;
+  background:radial-gradient(circle,#f4b6c0,#9c203b);
+  box-shadow:0 10px 30px #8b1b3233;
+  font-size:38px;
+}
+.music p{line-height:1.8;font-size:18px}
+.music a{text-decoration:none;display:inline-block}
+
+/* FINAL */
+.final{
+  background:linear-gradient(#f5e0e1,#fff8f1);
+  text-align:center;
+}
+footer{
+  text-align:center;
+  padding:35px 15px 45px;
+  color:#98727a;
+  font-size:17px;
+}
+#confetti{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:20;
+  overflow:hidden;
+}
+.conf{
+  position:absolute;top:-30px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(300deg);opacity:0}
+}
+
+@media(max-width:520px){
+  section{padding:75px 0}
+  .flower-hit{width:15%}
+  .cake{transform:scale(.87);transform-origin:top center;margin-bottom:-35px}
+  .letter p{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 
@@ -84,63 +556,136 @@
     <div class="bouquet-stage" id="bouquetStage">
       <svg class="bouquet-art" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="stemColor" x1="0" x2="1"><stop stop-color="#294c32"/><stop offset=".45" stop-color="#9ab879"/><stop offset="1" stop-color="#456b43"/></linearGradient>
-          <linearGradient id="leafColor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b2c98c"/><stop offset=".5" stop-color="#638b59"/><stop offset="1" stop-color="#315638"/></linearGradient>
-          <linearGradient id="vaseColor" x1="0" x2="1"><stop stop-color="#bd9299"/><stop offset=".28" stop-color="#fff0e9"/><stop offset=".65" stop-color="#f3d9d7"/><stop offset="1" stop-color="#b77d88"/></linearGradient>
+          <linearGradient id="stemColor" x1="0" x2="1">
+            <stop stop-color="#476b43"/>
+            <stop offset=".5" stop-color="#a1c487"/>
+            <stop offset="1" stop-color="#54794b"/>
+          </linearGradient>
+          <linearGradient id="vaseColor" x1="0" x2="1">
+            <stop stop-color="#cdb8b9"/>
+            <stop offset=".3" stop-color="#fff8f4"/>
+            <stop offset=".7" stop-color="#f5e8e5"/>
+            <stop offset="1" stop-color="#cbb1b4"/>
+          </linearGradient>
         </defs>
-        <g fill="none" stroke="url(#stemColor)" stroke-width="4.5" stroke-linecap="round">
-          <path d="M80 210 C85 275 170 330 350 386"/><path d="M190 130 C190 235 245 320 350 386"/><path d="M295 85 C295 210 320 310 350 386"/><path d="M405 95 C405 220 380 310 350 386"/><path d="M510 140 C510 245 455 330 350 386"/><path d="M620 215 C610 290 530 345 350 386"/>
+
+        <g fill="none" stroke="url(#stemColor)" stroke-width="4" stroke-linecap="round">
+          <path d="M80 210 C75 280 130 330 350 386"/>
+          <path d="M190 130 C185 230 230 320 350 386"/>
+          <path d="M295 85 C295 210 315 300 350 386"/>
+          <path d="M405 95 C405 210 385 300 350 386"/>
+          <path d="M510 140 C515 240 465 325 350 386"/>
+          <path d="M620 215 C615 285 540 340 350 386"/>
         </g>
-        <g fill="url(#leafColor)" stroke="#355c3b" stroke-width="1.2">
-          <path d="M142 285 C95 245 95 218 105 205 C145 218 164 246 142 285Z"/><path d="M228 305 C185 270 185 245 198 232 C235 247 249 275 228 305Z"/><path d="M300 320 C265 280 270 256 286 246 C319 269 324 295 300 320Z"/><path d="M395 318 C430 278 425 252 410 242 C379 265 372 293 395 318Z"/><path d="M475 300 C520 263 520 238 507 225 C468 244 453 272 475 300Z"/><path d="M550 285 C590 248 590 222 575 210 C540 232 528 260 550 285Z"/>
+
+        <g fill="#78976b" stroke="#496b43" stroke-width="2">
+          <path d="M99 285 Q65 260 57 286 Q73 300 99 285Z"/>
+          <path d="M112 320 Q143 297 151 319 Q134 335 112 320Z"/>
+          <path d="M196 243 Q162 220 154 245 Q173 258 196 243Z"/>
+          <path d="M213 296 Q244 276 249 298 Q230 313 213 296Z"/>
+          <path d="M295 240 Q265 218 257 241 Q274 255 295 240Z"/>
+          <path d="M310 305 Q341 285 347 308 Q327 323 310 305Z"/>
+          <path d="M405 244 Q435 220 444 244 Q426 260 405 244Z"/>
+          <path d="M390 308 Q360 287 354 309 Q375 324 390 308Z"/>
+          <path d="M504 260 Q535 237 544 259 Q525 278 504 260Z"/>
+          <path d="M484 318 Q454 299 448 320 Q467 333 484 318Z"/>
+          <path d="M610 292 Q640 269 650 292 Q630 309 610 292Z"/>
+          <path d="M570 337 Q542 320 535 341 Q553 352 570 337Z"/>
         </g>
-        <g fill="none" stroke="#c1d39a" stroke-width="1.2" opacity=".8"><path d="M142 285 Q126 248 105 205 M228 305 Q215 267 198 232 M300 320 Q294 277 286 246 M395 318 Q402 275 410 242 M475 300 Q490 260 507 225 M550 285 Q560 245 575 210"/></g>
-        <path d="M248 365 L452 365 L428 485 Q350 500 272 485Z" fill="url(#vaseColor)" stroke="#e5c4c6" stroke-width="2.5"/><ellipse cx="350" cy="366" rx="103" ry="15" fill="#fff4ef" stroke="#e5c4c6" stroke-width="3"/><ellipse cx="350" cy="369" rx="91" ry="8" fill="#9c6874" opacity=".25"/><path d="M279 398 Q285 442 286 466" stroke="#fff" stroke-width="5" opacity=".5" fill="none" stroke-linecap="round"/><text x="350" y="432" text-anchor="middle" fill="#9d3047" font-size="15" font-style="italic">for my love</text><text x="350" y="451" text-anchor="middle" fill="#b45b6c" font-size="12">♡</text>
+
+        <path d="M248 365 L452 365 L428 485 L272 485Z"
+          fill="url(#vaseColor)" stroke="#e5cfd0" stroke-width="2"/>
+        <ellipse cx="350" cy="366" rx="103" ry="15"
+          fill="#fffaf8" stroke="#e4cfd0" stroke-width="3"/>
+        <ellipse cx="350" cy="369" rx="91" ry="8" fill="#c6a6aa" opacity=".3"/>
+        <path d="M279 398 Q285 442 286 466"
+          stroke="#fff" stroke-width="5" opacity=".45" fill="none"/>
+        <text x="350" y="432" text-anchor="middle"
+          fill="#9d3047" font-size="15" font-style="italic">for my love</text>
+        <text x="350" y="451" text-anchor="middle"
+          fill="#b45b6c" font-size="12">♡</text>
       </svg>
 
-      <!-- MAWAR MERAH -->
-      <button class="flower-hit" style="left:11.43%;top:42%" onclick="showFlower(0)" aria-label="red rose">
-        <svg viewBox="0 0 120 120"><defs><radialGradient id="roseA" cx="35%" cy="25%"><stop stop-color="#ffc2ca"/><stop offset=".42" stop-color="#e94d69"/><stop offset="1" stop-color="#761027"/></radialGradient></defs>
-          <g stroke="#8b1831" stroke-width="1.2"><path d="M60 65C27 73 11 49 25 26 36 8 51 22 60 36 72 12 96 17 99 37 102 57 82 72 60 65Z" fill="url(#roseA)"/><path d="M60 65C35 88 13 72 21 50 27 34 43 38 55 47 48 23 68 12 83 29 99 48 80 66 60 65Z" fill="#bd2949"/><path d="M60 65C80 38 105 47 100 68 96 88 76 88 64 76 71 98 52 108 38 94 23 79 42 62 60 65Z" fill="url(#roseA)"/></g>
-          <path d="M58 64C41 50 49 33 64 38 78 43 74 56 64 62 83 57 88 72 75 81 61 90 49 76 58 64Z" fill="#f57d91" stroke="#a51c3c" stroke-width="1.4"/><path d="M59 63C49 53 57 44 66 48 75 52 68 60 63 63 75 59 77 69 68 74 59 78 54 69 59 63Z" fill="#8e1430" stroke="#681027" stroke-width="1.2"/><path d="M61 60Q68 51 72 58Q74 64 66 66" fill="none" stroke="#ffd1d7" stroke-width="2.3" stroke-linecap="round"/>
-          <g fill="none" stroke="#ffd0d6" opacity=".6"><path d="M34 29Q44 43 52 49"/><path d="M88 29Q79 43 70 49"/><path d="M29 68Q43 61 49 59"/></g>
+      <button class="flower-hit" style="left:11.43%;top:42%" onclick="showFlower(0)" aria-label="red roses">
+        <svg viewBox="0 0 100 100">
+          <defs><radialGradient id="rose1" cx="30%" cy="25%">
+            <stop stop-color="#ffb5c1"/><stop offset=".45" stop-color="#df4964"/><stop offset="1" stop-color="#81132e"/>
+          </radialGradient></defs>
+          <g fill="url(#rose1)" stroke="#8d1934" stroke-width=".7">
+            <ellipse cx="50" cy="28" rx="15" ry="27"/>
+            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(45 50 50)"/>
+            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(90 50 50)"/>
+            <ellipse cx="50" cy="28" rx="15" ry="27" transform="rotate(135 50 50)"/>
+          </g>
+          <path d="M38 48 Q40 30 53 36 Q67 42 57 55 Q48 65 39 54 Q34 47 44 43 Q51 40 54 48"
+            fill="none" stroke="#ffb5c1" stroke-width="5" stroke-linecap="round"/>
         </svg>
       </button>
 
-      <!-- TULIP MERAH -->
       <button class="flower-hit" style="left:27.14%;top:26%" onclick="showFlower(1)" aria-label="red tulip">
-        <svg viewBox="0 0 120 120"><defs><linearGradient id="tulipA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc0c7"/><stop offset=".4" stop-color="#e83e5b"/><stop offset="1" stop-color="#83102b"/></linearGradient></defs>
-          <path d="M28 87C12 63 22 34 39 17 47 30 54 38 59 44 65 24 76 16 81 15 101 40 103 69 83 89Z" fill="#9b1837" stroke="#681127" stroke-width="1.6"/><path d="M59 90C29 84 18 57 31 29 42 41 50 46 57 49 50 65 53 80 59 90Z" fill="url(#tulipA)" stroke="#971936" stroke-width="1.4"/><path d="M60 90C91 85 102 57 84 26 77 40 68 47 62 50 72 67 67 81 60 90Z" fill="url(#tulipA)" stroke="#8d1733" stroke-width="1.4"/><path d="M43 86C37 55 44 23 60 12 77 27 82 58 73 87 64 97 51 97 43 86Z" fill="#e84c65" stroke="#a51b39" stroke-width="1.5"/><path d="M59 84Q51 48 60 18Q70 52 59 84Z" fill="#ffc1c8" opacity=".55"/><path d="M43 48Q49 58 52 76M76 43Q69 58 67 76" fill="none" stroke="#ffd0d5" stroke-width="1.5" opacity=".7"/>
+        <svg viewBox="0 0 100 100">
+          <defs><linearGradient id="tulip1" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#ffb4c0"/><stop offset=".45" stop-color="#ed526b"/><stop offset="1" stop-color="#9b1834"/>
+          </linearGradient></defs>
+          <path d="M50 84 C15 67 25 28 36 15 Q43 28 50 33 Q56 24 65 15 C81 39 77 69 50 84Z"
+            fill="url(#tulip1)" stroke="#9b1834" stroke-width="1"/>
+          <path d="M50 78 Q43 43 50 23 Q60 49 50 78Z" fill="#ffb4c0" opacity=".55"/>
         </svg>
       </button>
 
-      <!-- ANYELIR -->
       <button class="flower-hit" style="left:42.14%;top:17%" onclick="showFlower(2)" aria-label="red carnation">
-        <svg viewBox="0 0 120 120"><defs><radialGradient id="carnationA" cx="45%" cy="35%"><stop stop-color="#ffd0d5"/><stop offset=".55" stop-color="#ed6484"/><stop offset="1" stop-color="#a51b43"/></radialGradient></defs>
-          <path d="M60 62C48 49 37 54 34 40 22 41 23 28 34 23 29 10 44 9 50 20 58 7 69 11 70 21 83 10 95 22 87 32 101 40 92 53 81 52 85 66 72 72 60 62Z" fill="url(#carnationA)" stroke="#a72a49" stroke-width="1.5"/><path d="M60 63C46 51 34 67 27 56 16 63 10 49 22 42 12 30 25 22 36 32 40 18 53 21 56 35 67 17 82 25 76 39 94 31 102 47 86 54 97 68 80 77 70 66Z" fill="#d9436b" stroke="#9e2042" stroke-width="1.5"/><path d="M59 62C44 50 44 39 53 34 59 27 66 33 66 40 77 29 86 41 77 50 88 59 76 70 68 63 60 76 47 70 59 62Z" fill="#f58ba0" stroke="#b32b4d" stroke-width="1.3"/><path d="M57 57Q49 45 55 41Q62 37 65 47Q73 43 73 51" fill="none" stroke="#ffe0e3" stroke-width="2" stroke-linecap="round"/><g fill="none" stroke="#ffd0d8" opacity=".65"><path d="M35 30Q44 40 48 48"/><path d="M82 31Q73 41 70 47"/><path d="M28 53Q42 53 48 57"/></g>
+        <svg viewBox="0 0 100 100">
+          <defs><radialGradient id="carnation1">
+            <stop stop-color="#ffc4ce"/><stop offset=".65" stop-color="#df5375"/><stop offset="1" stop-color="#a21e43"/>
+          </radialGradient></defs>
+          <g fill="url(#carnation1)" stroke="#a21e43" stroke-width=".6">
+            <ellipse cx="50" cy="30" rx="10" ry="24"/>
+            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(30 50 50)"/>
+            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(60 50 50)"/>
+            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(90 50 50)"/>
+            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(120 50 50)"/>
+            <ellipse cx="50" cy="30" rx="10" ry="24" transform="rotate(150 50 50)"/>
+          </g>
+          <circle cx="50" cy="50" r="9" fill="#f8d37e"/>
         </svg>
       </button>
 
-      <!-- MAWAR PINK -->
       <button class="flower-hit" style="left:57.86%;top:19%" onclick="showFlower(3)" aria-label="pink rose">
-        <svg viewBox="0 0 120 120"><defs><radialGradient id="roseB" cx="35%" cy="25%"><stop stop-color="#fff2ed"/><stop offset=".45" stop-color="#f3a1b1"/><stop offset="1" stop-color="#ad3c5b"/></radialGradient></defs>
-          <g stroke="#b64b67" stroke-width="1.2"><path d="M60 65C28 71 15 49 28 28 39 12 52 22 60 35 72 14 94 18 97 37 101 57 82 69 60 65Z" fill="url(#roseB)"/><path d="M60 65C37 86 17 71 23 51 27 35 43 37 54 46 49 26 67 15 81 29 97 44 81 64 60 65Z" fill="#dc7c94"/><path d="M60 65C79 39 102 45 99 65 97 83 77 85 65 75 71 95 54 106 40 94 24 81 42 64 60 65Z" fill="url(#roseB)"/></g>
-          <path d="M59 64C43 50 49 35 63 38 77 41 75 54 65 61 82 57 87 70 76 79 63 88 51 76 59 64Z" fill="#f7bdc8" stroke="#bd5570" stroke-width="1.3"/><path d="M60 63C50 53 57 44 65 48 73 51 69 59 63 63 74 59 76 68 68 73 61 77 55 69 60 63Z" fill="#c65a77" stroke="#a23b59" stroke-width="1.1"/><path d="M61 60Q67 52 71 58Q74 64 66 66" fill="none" stroke="#fff0ef" stroke-width="2.3" stroke-linecap="round"/>
+        <svg viewBox="0 0 100 100">
+          <defs><radialGradient id="pinkrose">
+            <stop stop-color="#fff0ee"/><stop offset=".5" stop-color="#f0a0ad"/><stop offset="1" stop-color="#b9516b"/>
+          </radialGradient></defs>
+          <g fill="url(#pinkrose)" stroke="#c16a7c" stroke-width=".7">
+            <ellipse cx="50" cy="29" rx="15" ry="25"/>
+            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(45 50 50)"/>
+            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(90 50 50)"/>
+            <ellipse cx="50" cy="29" rx="15" ry="25" transform="rotate(135 50 50)"/>
+          </g>
+          <path d="M40 51 Q39 37 50 36 Q64 37 60 51 Q55 64 44 57 Q38 53 47 46"
+            fill="none" stroke="#fff0ee" stroke-width="5"/>
         </svg>
       </button>
 
-      <!-- TULIP BURGUNDY -->
-      <button class="flower-hit" style="left:72.86%;top:28%" onclick="showFlower(4)" aria-label="burgundy tulip">
-        <svg viewBox="0 0 120 120"><defs><linearGradient id="tulipB" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f18a9c"/><stop offset=".38" stop-color="#a92348"/><stop offset="1" stop-color="#49091e"/></linearGradient></defs>
-          <path d="M28 87C14 63 23 34 40 18 48 31 55 39 59 45 65 25 77 17 79 16 99 41 103 68 83 88Z" fill="#64112b" stroke="#43091d" stroke-width="1.5"/><path d="M59 90C28 84 19 57 32 30 42 41 51 47 57 50 49 66 53 80 59 90Z" fill="url(#tulipB)" stroke="#65112b" stroke-width="1.4"/><path d="M60 90C91 85 102 57 84 27 76 41 68 48 62 51 72 67 67 81 60 90Z" fill="url(#tulipB)" stroke="#570d25" stroke-width="1.4"/><path d="M43 86C38 56 44 25 60 14 77 28 82 59 73 87 64 97 51 97 43 86Z" fill="#a92a4b" stroke="#5d1027" stroke-width="1.5"/><path d="M59 84Q51 48 60 19Q70 52 59 84Z" fill="#f39baa" opacity=".5"/><path d="M43 48Q49 58 52 76M76 43Q69 58 67 76" fill="none" stroke="#f6b5c0" stroke-width="1.5" opacity=".65"/>
+      <button class="flower-hit" style="left:72.86%;top:28%" onclick="showFlower(4)" aria-label="tulip burgundy">
+        <svg viewBox="0 0 100 100">
+          <defs><linearGradient id="tulip2" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#e46a83"/><stop offset=".45" stop-color="#9b2344"/><stop offset="1" stop-color="#4c0b20"/>
+          </linearGradient></defs>
+          <path d="M50 84 C15 67 25 28 36 15 Q43 28 50 33 Q56 24 65 15 C81 39 77 69 50 84Z"
+            fill="url(#tulip2)" stroke="#65132c" stroke-width="1"/>
+          <path d="M50 78 Q43 43 50 23 Q60 49 50 78Z" fill="#f5a2b2" opacity=".45"/>
         </svg>
       </button>
 
-      <!-- BABY'S BREATH -->
-      <button class="flower-hit" style="left:88.57%;top:43%" onclick="showFlower(5)" aria-label="baby's breath">
-        <svg viewBox="0 0 120 120"><g fill="none" stroke="#9bb17c" stroke-width="1.8" stroke-linecap="round"><path d="M60 112Q53 80 60 57Q48 37 30 25"/><path d="M60 72Q77 48 91 33"/><path d="M57 88Q35 66 17 65"/><path d="M62 91Q84 78 103 72"/><path d="M60 58Q63 35 65 14"/></g>
-          <defs><g id="tinyBloom" fill="#fffaf6" stroke="#e1d2d6" stroke-width=".9"><ellipse cy="-6" rx="3.8" ry="6.5"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(72)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(144)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(216)"/><ellipse cy="-6" rx="3.8" ry="6.5" transform="rotate(288)"/><circle r="2.8" fill="#e8c987" stroke="none"/></g></defs>
-          <use href="#tinyBloom" x="30" y="25"/><use href="#tinyBloom" x="91" y="33"/><use href="#tinyBloom" x="17" y="65"/><use href="#tinyBloom" x="103" y="72"/><use href="#tinyBloom" x="65" y="14"/><use href="#tinyBloom" x="45" y="43"/><use href="#tinyBloom" x="78" y="57"/><use href="#tinyBloom" x="39" y="82"/>
+      <button class="flower-hit" style="left:88.57%;top:43%" onclick="showFlower(5)" aria-label="Baby's breath">
+        <svg viewBox="0 0 100 100">
+          <g fill="#fff8f1" stroke="#e8d5d6" stroke-width=".8">
+            <ellipse cx="50" cy="28" rx="12" ry="24"/>
+            <ellipse cx="50" cy="28" rx="12" ry="24" transform="rotate(60 50 50)"/>
+            <ellipse cx="50" cy="28" rx="12" ry="24" transform="rotate(120 50 50)"/>
+          </g>
+          <circle cx="50" cy="50" r="9" fill="#e9d29a"/>
+          <circle cx="47" cy="47" r="2" fill="#fff"/>
         </svg>
       </button>
     </div>
@@ -149,13 +694,9 @@
       <strong>little flowers, lots of love ♡</strong>
       <p>setiap bunga punya pesan kecil. pilih satu, bbe.</p>
     </div>
-
-    <div class="progress" id="progress">
-      0 dari 6 bunga sudah kamu buka ♡
-    </div>
-
+    <div class="progress" id="progress">0 dari 6 bunga sudah kamu buka ♡</div>
     <div class="bouquet-buttons">
-      <button class="btn light" onclick="showAllFlowers()">buka semua</button>
+      <button class="btn light" onclick="showAllFlowers()">buka semua pesannya ♡</button>
     </div>
   </div>
 </div>
@@ -166,17 +707,17 @@
   <div class="section-head">
     <div class="kicker">A NOTE FROM ME</div>
     <h2>buat kamu, bb</h2>
-    <p class="desc"></p>
+    <p class="desc">aku mau bilang sesuatu, jadi baca dulu yaa.</p>
   </div>
 
   <article class="panel letter">
     <p>happy birthday, sayanggg ♡</p>
-    <p>semoga di umur kamu yang sekarang, banyak hal baik dateng ke kamu yaa. semoga lebih bahagia, ngga seringg cape, dan ketemu banyak hal yang bikin kamu seneng.</p>
+    <p>semoga di umur kamu yang sekarang, banyak hal baik dateng ke kamu yaa. semoga lebih bahagia, ngga kebanyakan cape, dan ketemu banyak hal yang bikin kamu seneng.</p>
     <p>makasih udah jadi diri kamu yaa sayanggg. aku suka banyak hal kecil tentang kamu, bahkan hal hal yang mungkin kamu sendiri ngga sadar. dan jujur, aku seneng banget bisa kenal sama kamu.</p>
     <p>kalau lagi cape, istirahat yaa. jangan maksain diri terus. kamu ngga harus selalu punya energi buat semuanya. aku for you koo, termasuk cerita random yang menurut kamu gapenting. tapi menurut aku penting bb hehehe.</p>
-    <p>aku belum bisa ngasih kamu kado yang bisa kamu pegang langsung atau ngerayain bareng kamu. jadi aku bikin ini dulu. sederhana sih, tapi tiap bagiannya aku siapin sambil mikirin kamu muehehhe.</p>
+    <p>aku belum bisa ngasih kamu kado yang bisa kamu pegang langsung atau ngerayain bareng kamu. jadi aku bikin ini dulu. sederhana sih, tapi tiap bagiannya aku siapin sambil mikirin kamu.</p>
     <p>pokoknya jaga diri baik baik yaa, sayangg. semoga tahun ini baik sama kamu. i hope you get all the little things that make you happy. ♡</p>
-    <p class="signature">dari anak kecil yang selalu<br>sayang kepadamu bb ♡</p>
+    <p class="signature">dari anak kecil yang selalu<br>ysayang kepadamu bb ♡</p>
   </article>
 </div>
 </section>
@@ -186,16 +727,77 @@
   <div class="section-head">
     <div class="kicker">ONE BIRTHDAY WISH</div>
     <h2>make a wish, bbe!</h2>
-    <p class="desc">sebelum lanjut, kamu harus tiup lilinnya dulu. pencet tombolnya hehehe.</p>
+    <p class="desc">sebelum lanjut, kamu harus tiup lilinnya dulu. pencet tombolnya bbe hehehe.</p>
   </div>
 
-  <div class="panel">
+  <div class="panel cake-panel">
     <div class="cake" id="cakeArt">
+
       <div class="candle"><span class="flame"></span></div>
       <div class="candle"><span class="flame"></span></div>
       <div class="candle"><span class="flame"></span></div>
+
       <div class="cake-top"></div>
       <div class="cake-body"></div>
+
+      <!-- Strawberries -->
+      <div class="strawberry one">
+        <svg viewBox="0 0 100 110">
+          <path d="M50 25 C20 10 5 38 22 69 C32 91 43 105 50 108 C59 101 75 80 81 57 C91 27 68 10 50 25Z" fill="#d92542"/>
+          <path d="M50 25 C35 15 20 25 20 43 C30 32 38 35 50 25Z" fill="#f35a69" opacity=".8"/>
+          <path d="M50 25 Q30 10 25 17 Q40 17 50 25 Q57 8 72 15 Q62 18 50 25Z" fill="#527d42"/>
+          <g fill="#ffe3a1">
+            <ellipse cx="34" cy="43" rx="2" ry="3"/>
+            <ellipse cx="52" cy="39" rx="2" ry="3"/>
+            <ellipse cx="66" cy="48" rx="2" ry="3"/>
+            <ellipse cx="39" cy="63" rx="2" ry="3"/>
+            <ellipse cx="57" cy="59" rx="2" ry="3"/>
+            <ellipse cx="48" cy="82" rx="2" ry="3"/>
+            <ellipse cx="66" cy="76" rx="2" ry="3"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="strawberry two">
+        <svg viewBox="0 0 100 110">
+          <path d="M50 25 C20 10 5 38 22 69 C32 91 43 105 50 108 C59 101 75 80 81 57 C91 27 68 10 50 25Z" fill="#d92542"/>
+          <path d="M50 25 C35 15 20 25 20 43 C30 32 38 35 50 25Z" fill="#f35a69" opacity=".8"/>
+          <path d="M50 25 Q30 10 25 17 Q40 17 50 25 Q57 8 72 15 Q62 18 50 25Z" fill="#527d42"/>
+          <g fill="#ffe3a1">
+            <ellipse cx="34" cy="43" rx="2" ry="3"/>
+            <ellipse cx="52" cy="39" rx="2" ry="3"/>
+            <ellipse cx="66" cy="48" rx="2" ry="3"/>
+            <ellipse cx="39" cy="63" rx="2" ry="3"/>
+            <ellipse cx="57" cy="59" rx="2" ry="3"/>
+            <ellipse cx="48" cy="82" rx="2" ry="3"/>
+            <ellipse cx="66" cy="76" rx="2" ry="3"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="strawberry three">
+        <svg viewBox="0 0 100 110">
+          <path d="M50 25 C20 10 5 38 22 69 C32 91 43 105 50 108 C59 101 75 80 81 57 C91 27 68 10 50 25Z" fill="#c91e3c"/>
+          <path d="M50 25 Q30 10 25 17 Q40 17 50 25 Q57 8 72 15 Q62 18 50 25Z" fill="#527d42"/>
+          <g fill="#ffe3a1">
+            <ellipse cx="34" cy="43" rx="2" ry="3"/>
+            <ellipse cx="52" cy="39" rx="2" ry="3"/>
+            <ellipse cx="66" cy="48" rx="2" ry="3"/>
+            <ellipse cx="39" cy="63" rx="2" ry="3"/>
+            <ellipse cx="57" cy="59" rx="2" ry="3"/>
+            <ellipse cx="48" cy="82" rx="2" ry="3"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="cream one"></div>
+      <div class="cream two"></div>
+      <div class="cream three"></div>
+      <div class="cream four"></div>
+      <div class="berry a"></div>
+      <div class="berry b"></div>
+      <div class="berry c"></div>
+
       <div class="plate"></div>
     </div>
 
@@ -248,8 +850,7 @@
     <div class="disc">🎵</div>
     <p><strong>Lovesong — The Cure</strong></p>
     <a class="btn" href="https://youtu.be/hXCKLJGLENs"
-       target="_blank" rel="noopener noreferrer"
-       style="display:inline-block;text-decoration:none">
+       target="_blank" rel="noopener noreferrer">
       ♡ play our song ♡
     </a>
     <p style="color:#98727a">entah kenapa lagu ini bikin aku inget kamu. so, this is for you. ♡</p>
@@ -278,12 +879,12 @@ const flowers=[
  {
   name:"red rosess",
   meaning:"because you're my favorite",
-  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banget. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
+  message:"aku pilih mawar merah karena ya… kamu tau sendiri lah artinya. aku sayang kamu, banyak. kadang aku juga bingung mau nunjukinnya gimana, jadi anggap aja ini satu cara kecil dari aku hehe."
  },
  {
   name:"red tulip",
   meaning:"you're my happiness",
-  message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
+  message:"aku suka hal hal kecil tentang kamu bb. cara kamu cerita, cara kamu manggil aku, bahkan chat random kamu. hal-hal kecil gitu aja bisa bikin aku seneng. jangan bosen cerita ke aku yaa."
  },
  {
   name:"red carnation",
@@ -337,7 +938,7 @@ function blowCandles(){
  if(cake.classList.contains("out"))return;
  cake.classList.add("out");
  document.getElementById("cakeText").textContent=
- "YAYYY! semoga wish kamu satu satu jadi nyata yaa. happy birthday, sayanggg ♡";
+ "YAYYY! semoga wish kamu satu-satu jadi nyata yaa. happy birthday, sayanggg ♡";
  document.getElementById("blowButton").textContent="wish sent! ♡";
  document.getElementById("blowButton").disabled=true;
  rainHearts();
@@ -351,92 +952,17 @@ function openEnvelope(){
 
 function rainHearts(){
  const layer=document.getElementById("confetti");
-
- const flowers=[
-  // MAWAR MERAH
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <defs><radialGradient id="rainRose" cx="35%" cy="25%"><stop stop-color="#ffc2ca"/><stop offset=".45" stop-color="#e94d69"/><stop offset="1" stop-color="#761027"/></radialGradient></defs>
-    <g fill="url(#rainRose)" stroke="#8b1831" stroke-width="1.2">
-      <path d="M50 54C19 67 9 42 25 22C37 8 47 21 51 31C64 9 88 17 84 39C81 57 66 62 50 54Z"/>
-      <path d="M50 54C22 76 10 53 23 35C35 20 46 34 53 42C47 18 68 13 81 30C94 49 68 63 50 54Z"/>
-      <path d="M50 54C73 27 94 44 81 66C70 83 56 70 49 63C61 86 40 91 27 75C15 58 35 45 50 54Z"/>
-    </g>
-    <path d="M49 53C37 39 47 29 57 34C70 29 76 44 63 53C76 50 78 63 65 70C52 77 40 65 49 53Z" fill="#f57d91" stroke="#a51c3c" stroke-width="1.4"/>
-    <path d="M50 52C43 43 52 37 58 42C66 46 58 54 54 56C66 51 68 62 58 66C48 69 44 60 50 52Z" fill="#8e1430"/>
-  </svg>`,
-
-  // TULIP
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="rainTulip" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc0c7"/><stop offset=".45" stop-color="#e83e5b"/><stop offset="1" stop-color="#83102b"/></linearGradient></defs>
-    <path d="M50 88C20 77 14 51 31 22C40 34 47 41 51 47C57 26 69 15 74 15C94 44 84 76 50 88Z" fill="#9b1837" stroke="#681127" stroke-width="1.5"/>
-    <path d="M50 86C24 76 23 49 36 23C44 36 49 43 53 48C49 64 49 77 50 86Z" fill="url(#rainTulip)" stroke="#971936" stroke-width="1.3"/>
-    <path d="M50 86C77 76 82 48 67 20C62 35 57 43 52 49C61 66 57 78 50 86Z" fill="#d83255" stroke="#8d1733" stroke-width="1.3"/>
-    <path d="M49 84C39 54 44 22 54 12C69 31 66 61 51 84Z" fill="#f58ca0" stroke="#a31b3a" stroke-width="1.3"/>
-    <path d="M52 75Q47 39 54 19" fill="none" stroke="#ffd0d5" stroke-width="2" opacity=".8"/>
-  </svg>`,
-
-  // DAISY
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(50 50)" fill="#fff8ef" stroke="#e7d2c9" stroke-width="1">
-      <ellipse cy="-25" rx="10.5" ry="22"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(45)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(90)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(135)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(180)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(225)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(270)"/>
-      <ellipse cy="-25" rx="10.5" ry="22" transform="rotate(315)"/>
-      <circle r="12" fill="#e7b84d" stroke="#c48b35" stroke-width="2"/>
-      <circle r="5" fill="#f8d77b" stroke="none"/>
-    </g>
-  </svg>`,
-
-  // SAKURA
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(50 50)" fill="#f5b5c5" stroke="#d9829c" stroke-width="1.5">
-      <path d="M0 0C-18 -11 -19 -30 -7 -35C-2 -37 0 -30 0 -25C0 -30 5 -38 11 -34C23 -26 15 -8 0 0Z"/>
-      <path d="M0 0C-18 -11 -19 -30 -7 -35C-2 -37 0 -30 0 -25C0 -30 5 -38 11 -34C23 -26 15 -8 0 0Z" transform="rotate(72)"/>
-      <path d="M0 0C-18 -11 -19 -30 -7 -35C-2 -37 0 -30 0 -25C0 -30 5 -38 11 -34C23 -26 15 -8 0 0Z" transform="rotate(144)"/>
-      <path d="M0 0C-18 -11 -19 -30 -7 -35C-2 -37 0 -30 0 -25C0 -30 5 -38 11 -34C23 -26 15 -8 0 0Z" transform="rotate(216)"/>
-      <path d="M0 0C-18 -11 -19 -30 -7 -35C-2 -37 0 -30 0 -25C0 -30 5 -38 11 -34C23 -26 15 -8 0 0Z" transform="rotate(288)"/>
-    </g>
-    <circle cx="50" cy="50" r="7" fill="#d9a04c"/>
-    <circle cx="50" cy="50" r="3" fill="#ffedb7"/>
-  </svg>`,
-
-  // ANYELIR
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 53C34 65 18 50 26 39C12 26 31 15 40 27C44 9 64 13 63 29C81 17 91 39 75 47C86 62 65 77 55 62C47 76 28 70 34 57Z" fill="#d83d66" stroke="#9c1d42" stroke-width="1.5"/>
-    <path d="M50 53C30 45 37 25 49 32C57 17 75 29 66 42C83 45 73 66 59 58C52 75 34 62 50 53Z" fill="#f0809a" stroke="#b72a4c" stroke-width="1.5"/>
-    <path d="M49 52C42 40 51 31 57 39C69 35 72 48 61 53C71 63 54 70 49 58C40 68 32 55 49 52Z" fill="#f7a4b4" stroke="#bb385a" stroke-width="1.3"/>
-    <path d="M49 50Q44 39 53 38Q63 36 62 46Q68 51 57 57" fill="none" stroke="#ffe0e5" stroke-width="2"/>
-  </svg>`,
-
-  // PEONY
-  `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#a82b50" stroke-width="1.3">
-      <path d="M50 50C24 66 13 43 28 26C35 17 45 25 50 31C54 12 75 15 77 33C96 35 89 58 71 60C73 81 48 88 43 69C23 82 10 61 28 48Z" fill="#d94c70"/>
-      <path d="M50 50C30 35 39 18 52 25C61 8 79 26 65 40C83 44 76 66 60 61C56 80 34 69 42 55Z" fill="#f58da5"/>
-      <path d="M50 50C39 35 50 28 57 36C68 29 74 44 63 51C74 61 58 71 50 60C41 68 34 56 50 50Z" fill="#ffb6c4"/>
-    </g>
-    <path d="M49 50Q43 41 53 38Q62 36 62 47Q70 54 58 60Q47 64 49 50Z" fill="#bd3157"/>
-  </svg>`
- ];
-
- for(let i=0;i<85;i++){
+ const symbols=["♡","♥","🌹","✨","💌","🎀"];
+ for(let i=0;i<30;i++){
   const e=document.createElement("span");
   e.className="conf";
-  e.innerHTML=flowers[Math.floor(Math.random()*flowers.length)];
+  e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
   e.style.left=Math.random()*100+"vw";
-  e.style.setProperty("--size",(17+Math.random()*17)+"px");
-  e.style.setProperty("--duration",(5+Math.random()*5)+"s");
-  e.style.setProperty("--drift",(Math.random()*160-80)+"px");
-  e.style.setProperty("--spin",(Math.random()*500-250)+"deg");
-  e.style.animationDelay=(Math.random()*2)+"s";
+  e.style.animationDuration=(2.4+Math.random()*2.2)+"s";
+  e.style.animationDelay=(Math.random()*.45)+"s";
   layer.appendChild(e);
-  setTimeout(()=>e.remove(),12000);
+  setTimeout(()=>e.remove(),5000);
  }
-
  const msg=document.getElementById("lastMessage");
  if(msg)msg.textContent="nih, satu lagi buat kamu. love youuu ♡";
 }
